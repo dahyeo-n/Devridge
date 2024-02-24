@@ -1,4 +1,4 @@
-import Router from './router/Router';
+import Router from './components/router/Router';
 import { Reset } from 'styled-reset';
 
 function App() {

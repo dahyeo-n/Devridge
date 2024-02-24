@@ -47,6 +47,30 @@
           "lng": 127.03499685994211
         }
       }
+    },
+    {
+      "id": "7060",
+      "userId": "ed5c6e45-99dd-4c68-a38b-9d09320562d0",
+      "title": "제목",
+      "content": "내용",
+      "nickname": "닉네임",
+      "password": "1234",
+      "createdAt": "2024-02-24",
+      "location": {
+        "name": "배달의민족"
+      }
+    },
+    {
+      "id": "06b2",
+      "userId": "5dbb4609-1d9d-49a4-b2b2-e376052bc605",
+      "title": "테스트 제목",
+      "content": "내용 테스트 네이버",
+      "nickname": "닉네임 테스트",
+      "password": "1234",
+      "createdAt": "2024-02-24",
+      "location": {
+        "name": "네이버"
+      }
     }
   ]
 }
