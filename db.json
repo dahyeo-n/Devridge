@@ -7,7 +7,7 @@
       "password": 1234,
       "createdAt": "2024-02-24",
       "location": {
-        "locationName": "우아한형제들",
+        "name": "우아한형제들",
         "locationId": "0",
         "latlng": {
           "lat": 37.516978715488555,
@@ -22,7 +22,7 @@
       "password": 1241,
       "createdAt": "2024-02-25",
       "location": {
-        "locationName": "팀스파르타",
+        "name": "팀스파르타",
         "locationId": "1",
         "latlng": {
           "lat": 37.50232863613739,
@@ -37,7 +37,7 @@
       "password": 1234,
       "createdAt": "2024-02-24",
       "location": {
-        "locationName": "비바리퍼블리카",
+        "name": "비바리퍼블리카",
         "locationId": "2",
         "latlng": {
           "lat": 37.49970763404374,
