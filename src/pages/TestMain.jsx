@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { getReview } from '../api/reviews';
 import { useQuery } from 'react-query';
 
-function Main() {
+function TestMain() {
   const navi = useNavigate();
   const gotoDetailPage = (id) => {
     navi(`detail/${id}`);
@@ -38,7 +38,7 @@ function Main() {
   }
 
   const filterMapMarkerData = data.filter((data) => data).map((data) => data.location);
-
+  console.log(filterMapMarkerData);
   return (
     <>
       <Header />
@@ -89,7 +89,7 @@ function Main() {
   );
 }
 
-export default Main;
+export default TestMain;
 
 const StDevRidgeMainContainer = styled.main`
   display: flex;
