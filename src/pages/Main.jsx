@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Map, MapMarker, useKakaoLoader } from 'react-kakao-maps-sdk';
 import Header from 'components/commons/Header';
 import { useNavigate } from 'react-router-dom';
@@ -15,7 +15,8 @@ function Main() {
 
   const getReview = async () => {
     const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}`);
-    return response.data;
+
+    return response;
   };
 
   const { data } = useQuery('reviews', getReview);
@@ -27,7 +28,7 @@ function Main() {
     navi(`detail/${id}`);
   };
 
-  const filTerArray = data.filter((data) => data).map((data) => data.location);
+  const filTerArray = data.data.filter((data) => data).map((data) => data.location);
 
   const styleMap = {
     width: '50%',
@@ -61,7 +62,7 @@ function Main() {
         </Map>
 
         <StDevRidgeReplyList>
-          {data.map((data) => (
+          {data.data.map((data) => (
             <StDevRidgeReplyBorder
               key={data.reviewId}
               onClick={() => {

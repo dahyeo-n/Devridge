@@ -1,5 +1,5 @@
 /*global kakao*/
-import { addReview } from 'api/common';
+
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
@@ -45,37 +45,52 @@ function Write() {
     );
   }, [map, search]);
 
-  console.log(info);
+  const [name, setName] = useState('');
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+
+    const obj = {
+      // 아이디 ,날짜
+      name,
+      location: info
+    };
+
+    await axios.post(`${process.env.REACT_APP_SERVER_URL}`, obj);
+  };
 
   return (
     <>
       {/* 검색입력폼 */}
-      <form>
-        <input type="search" value={search} onChange={(e) => setSearch(e.target.value)} />
-
-        <Map // 로드뷰를 표시할 Container
-          center={{
-            lat: 37.566826,
-            lng: 126.9786567
-          }}
-          style={{
-            width: '100%',
-            height: '350px'
-          }}
-          level={1}
-          onCreate={setMap}
-        >
-          {markers.map((marker) => (
-            <MapMarker
-              key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
-              position={marker.position}
-              onClick={() => setInfo(marker)}
-            >
-              {info && info.content === marker.content && <div style={{ color: '#000' }}>{marker.content}</div>}
-            </MapMarker>
-          ))}
-        </Map>
+      <form onSubmit={(e) => submitHandler(e)}>
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        <br />
+        <input type="input" value={search} onChange={(e) => setSearch(e.target.value)} />
+        <button type="submit">버튼 </button>
       </form>
+      <Map // 로드뷰를 표시할 Container
+        center={{
+          lat: 37.566826,
+          lng: 126.9786567
+        }}
+        style={{
+          width: '100%',
+          height: '350px'
+        }}
+        level={1}
+        onCreate={setMap}
+      >
+        {markers.map((marker) => (
+          <MapMarker
+            key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
+            position={marker.position}
+            onClick={() => setInfo(marker)}
+            title={marker.name}
+          >
+            {info && info.content === marker.content && <div style={{ color: '#000' }}>{marker.content}</div>}
+          </MapMarker>
+        ))}
+      </Map>
     </>
   );
 }
