@@ -42,7 +42,7 @@ const WritePage = () => {
     event.preventDefault();
     setIsLoading(true);
     const newPost = {
-      userId: uuidv4(),
+      id: uuidv4(),
       title,
       content,
       nickname,

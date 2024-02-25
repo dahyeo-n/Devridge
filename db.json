@@ -1,7 +1,7 @@
 {
   "reviews": [
     {
-      "userId": 0,
+      "id": 0,
       "reviewTitle": "일하기너무좋은데요",
       "content": "이회사너무좋아요",
       "nickname": "배달맞점",
@@ -17,7 +17,7 @@
       }
     },
     {
-      "userId": 1,
+      "id": 1,
       "reviewTitle": "너무좋습니다.",
       "content": "이회사일하기가너무좋아요",
       "nickname": "스파르탄",
@@ -33,7 +33,7 @@
       }
     },
     {
-      "userId": 2,
+      "id": 2,
       "reviewTitle": "빵이요",
       "content": "이회사너무좋아요",
       "nickname": "너무좋아용맞점",
@@ -70,6 +70,22 @@
       "createdAt": "2024-02-24",
       "location": {
         "name": "네이버"
+      }
+    },
+    {
+      "id": "06b7",
+      "title": "테스트 제목",
+      "content": "내용 테스트 네이버",
+      "nickname": "닉네임 테스트",
+      "password": "1234",
+      "createdAt": "2024-02-24",
+      "location": {
+        "name": "비바리퍼블리카",
+        "locationId": "2",
+        "latLng": {
+          "lat": 37.49970763404374,
+          "lng": 127.03499685994211
+        }
       }
     }
   ]
