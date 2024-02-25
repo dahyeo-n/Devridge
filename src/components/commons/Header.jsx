@@ -5,7 +5,7 @@ function Header() {
   return (
     <>
       <StHeader>
-        <StH1Tag>공용 Header Logo</StH1Tag>
+        <StH1Tag>DevRidge</StH1Tag>
 
         <Button />
       </StHeader>
@@ -26,7 +26,3 @@ const StH1Tag = styled.h1`
   margin: 10px;
   padding-left: 10px;
 `;
-
-// const StGoWritePageBtn = styled.button`
-//   margin: 4px;
-// `;

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Map, MapMarker, useKakaoLoader } from 'react-kakao-maps-sdk';
-import axios from 'axios';
 import Header from 'components/commons/Header';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+
+import { useQuery } from 'react-query';
+import axios from 'axios';
 
 function Main() {
   const [loading, error] = useKakaoLoader({
@@ -10,34 +13,41 @@ function Main() {
     // ...options // 추가 옵션
   });
 
-  const [mockData, setMockData] = useState([]);
-
-  const fetchData = async () => {
-    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}`);
-    setMockData(data);
-    return data;
+  const getReview = async () => {
+    const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}`);
+    return response.data;
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { data } = useQuery('reviews', getReview);
+  console.log(data);
 
-  const filTerArray = mockData.filter((data) => data).map((data) => data.location);
-  console.log(filTerArray);
   const navi = useNavigate();
+
+  const gotoDetailPage = (id) => {
+    navi(`detail/${id}`);
+  };
+
+  const filTerArray = data.filter((data) => data).map((data) => data.location);
+
+  const styleMap = {
+    width: '50%',
+    height: '360px',
+    marginLeft: '140px',
+    marginTop: '10px'
+  };
 
   return (
     <>
       <Header />
 
-      <section style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+      <StDevRidgeMainContainer>
         {/* 지도 나타내는 부분 */}
 
-        <Map center={{ lat: 37.50232863613739, lng: 127.04444701396942 }} style={{ width: '50%', height: '360px' }}>
+        <Map center={{ lat: 37.50232863613739, lng: 127.04444701396942 }} style={styleMap}>
           {filTerArray.map((position) => (
             <MapMarker
-              key={`${position.name}-${position.latlng}`}
-              position={position.latlng} // position :  마커를 표시할 위치
+              key={`${position.name}-${position.latLng}`}
+              position={position.latLng} // position :  마커를 표시할 위치
               image={{
                 src: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png', // 마커이미지의 주소입니다
                 size: {
@@ -50,29 +60,70 @@ function Main() {
           ))}
         </Map>
 
-        <article>
-          <figure>
-            {/* 사용자 글 리스트를 나타내는 부분    */}
-            {mockData.map((data) => (
-              <div key={data.password}>
-                <h1>{data.reviewTitle}</h1>
-                <small>{data.nickname}</small>
-                <p>{data.content.slice(1, 10) + '...'}</p>
-                <small>{data.createdAt}</small>
-                <button
-                  onClick={() => {
-                    navi(`detail/${data.password}`);
-                  }}
-                >
-                  이동
-                </button>
-              </div>
-            ))}
-          </figure>
-        </article>
-      </section>
+        <StDevRidgeReplyList>
+          {data.map((data) => (
+            <StDevRidgeReplyBorder
+              key={data.reviewId}
+              onClick={() => {
+                gotoDetailPage(data.reviewId);
+              }}
+            >
+              <StDevRidgeReplyInfo>
+                <StDevRidgeReplyNickName>{data.nickname}</StDevRidgeReplyNickName>
+                <StDevRidgeReplyTitle>{data.reviewTitle.slice(0, 50) + '....'}</StDevRidgeReplyTitle>
+              </StDevRidgeReplyInfo>
+              <StDevRidgeReplyCreatedAt>{data.createdAt}</StDevRidgeReplyCreatedAt>
+            </StDevRidgeReplyBorder>
+          ))}
+        </StDevRidgeReplyList>
+      </StDevRidgeMainContainer>
     </>
   );
 }
 
 export default Main;
+
+const StDevRidgeMainContainer = styled.main`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const StDevRidgeReplyList = styled.article`
+  margin: 10px;
+`;
+
+const StDevRidgeReplyBorder = styled.figure`
+  margin: 10px;
+  box-shadow: 1px 1px 1px 1px lightgray;
+  width: 300px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 1px 1px 1px 1px darkgrey;
+  }
+`;
+
+const StDevRidgeReplyInfo = styled.figcaption`
+  margin: 10px;
+`;
+
+const StDevRidgeReplyNickName = styled.h1`
+  padding-bottom: 5px;
+  color: #141315;
+  font-weight: 700;
+  padding-top: 2px;
+`;
+
+const StDevRidgeReplyTitle = styled.h4`
+  padding-left: 10px;
+  font-size: 12px;
+  padding-top: 10px;
+`;
+
+const StDevRidgeReplyCreatedAt = styled.small`
+  font-size: small;
+  padding-left: 220px;
+  color: #636263;
+`;

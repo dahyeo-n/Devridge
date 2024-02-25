@@ -15,4 +15,14 @@ export default Button;
 
 const StGoWritePageBtn = styled.button`
   margin: 10px;
+  padding: 4px;
+  border-radius: 4px;
+  border-color: #141315;
+  background-color: #141315;
+  color: #ffff;
+  cursor: pointer;
+  &:hover {
+    background-color: #2a292b;
+    border-color: #2a292b;
+  }
 `;
