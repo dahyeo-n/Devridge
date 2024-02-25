@@ -1,8 +1,8 @@
 {
   "reviews": [
     {
-      "userId": 0,
-      "reviewTitle": "일하기너무좋은데요",
+      "id": 0,
+      "title": "일하기너무좋은데요",
       "content": "이회사너무좋아요",
       "nickname": "배달맞점",
       "password": 1234,
@@ -17,8 +17,8 @@
       }
     },
     {
-      "userId": 1,
-      "reviewTitle": "너무좋습니다.",
+      "id": 1,
+      "title": "너무좋습니다.",
       "content": "이회사일하기가너무좋아요",
       "nickname": "스파르탄",
       "password": 1241,
@@ -33,8 +33,8 @@
       }
     },
     {
-      "userId": 2,
-      "reviewTitle": "빵이요",
+      "id": 2,
+      "title": "빵이요",
       "content": "이회사너무좋아요",
       "nickname": "너무좋아용맞점",
       "password": 1234,
