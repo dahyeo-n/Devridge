@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Map, MapMarker, useKakaoLoader } from 'react-kakao-maps-sdk';
 import axios from 'axios';
 
-function Home() {
+function HomePage() {
   const [loading, error] = useKakaoLoader({
     appkey: `${process.env.REACT_APP_KAKAO_KEY}` // 발급 받은 APPKEY
     // ...options // 추가 옵션
@@ -25,4 +25,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;
