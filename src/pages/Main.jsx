@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Map, MapMarker, useKakaoLoader } from 'react-kakao-maps-sdk';
 import Header from 'components/commons/Header';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-
+import { getReview } from '../api/reviews';
 import { useQuery } from 'react-query';
-import axios from 'axios';
 
 function Main() {
   const navi = useNavigate();
@@ -24,11 +23,6 @@ function Main() {
     appkey: `${process.env.REACT_APP_KAKAO_KEY}`
     // ...options // 추가 옵션
   });
-
-  const getReview = async () => {
-    const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}`);
-    return response.data;
-  };
 
   const { isLoading, isError, data } = useQuery('reviews', getReview);
 
