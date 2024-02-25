@@ -17,8 +17,8 @@ const StGoWritePageBtn = styled.button`
   margin: 10px;
   padding: 4px;
   border-radius: 4px;
-  border-color: #141315;
-  background-color: #141315;
+  border-color: #212529;
+  background-color: #212529;
   color: #ffff;
   cursor: pointer;
   &:hover {

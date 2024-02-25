@@ -23,6 +23,11 @@ const StHeader = styled.header`
 `;
 
 const StH1Tag = styled.h1`
+  width: 71px;
+  height: 32px;
   margin: 10px;
   padding-left: 10px;
+  font-weight: 600px;
+  font-size: 25px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `;

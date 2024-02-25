@@ -13,8 +13,8 @@ function Main() {
   };
 
   const styleMap = {
-    width: '50%',
-    height: '360px',
+    width: '100%',
+    height: '500px',
     marginLeft: '140px',
     marginTop: '10px'
   };
