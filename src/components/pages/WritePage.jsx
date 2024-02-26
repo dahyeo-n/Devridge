@@ -99,7 +99,7 @@ const WritePage = () => {
 
   const submitPostHandler = async (event) => {
     event.preventDefault();
-    if (!validateInput()) return;
+    if (!validateInput() || !selectedMarkerInfo) return;
 
     setIsLoading(true);
     const newPost = {
@@ -108,16 +108,17 @@ const WritePage = () => {
       content,
       nickname,
       password,
-      createdAt: new Date().toISOString().split('T')[0], // 'YYYY-MM-DD'
+      createdAt: new Date().toLocaleString('ko-KR'), // 'YYYY년 MM월 DD일'
       location: {
         name: locationName,
         locationId: '2',
         latLng: {
-          lat: 37.49970763404374,
-          lng: 127.03499685994211
+          lat: selectedMarkerInfo.position.lat,
+          lng: selectedMarkerInfo.position.lng
         }
       }
     };
+    // console.log(newPost);
 
     try {
       if (id) {
@@ -172,7 +173,7 @@ const WritePage = () => {
     <div>
       <Layout />
       <StPageWide>
-        <form onSubmit={submitPostHandler}>
+        <form onSubmit={(e) => submitPostHandler(e)}>
           <div>
             <StTitleWriteBox
               type="text"
@@ -200,7 +201,7 @@ const WritePage = () => {
               value={locationName}
               name="locationName"
               placeholder="재직하셨던 회사명을 입력해주세요."
-              onChange={locationNameChangeHandler}
+              onChange={(e) => locationNameChangeHandler(e)}
               required
             />
             <button type="button" onClick={submitCompanylocationInfoHandler}>
