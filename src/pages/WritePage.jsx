@@ -6,8 +6,8 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addPost, updatePost } from '../../store/modules/posts';
-import Layout from '../commons/Layout';
+import { addPost, updatePost } from '../store/modules/reviewSlice';
+import Layout from '../components/commons/Layout';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
 const WritePage = () => {

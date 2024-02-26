@@ -33,7 +33,7 @@ export const init = (payload) => {
   };
 };
 
-const posts = (state = initialState, action) => {
+const reviewSlice = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
       return [...state, action.payload];
@@ -60,4 +60,4 @@ const posts = (state = initialState, action) => {
   }
 };
 
-export default posts;
+export default reviewSlice;

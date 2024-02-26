@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from 'redux';
-import posts from '../modules/posts';
+import reviewSlice from '../modules/reviewSlice';
 
 const rootReducer = combineReducers({
-  posts: posts
+  reviewSlice
 });
 
 const store = createStore(rootReducer);
