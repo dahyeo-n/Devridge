@@ -1,18 +1,15 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Home from '../pages/Home';
-import Test from '../pages/Test'; // 테스트용 코드
-import Write from '../pages/Write';
-import Detail from '../pages/Detail';
+import HomePage from '../pages/HomePage';
+import WritePage from '../pages/WritePage';
+import DetailPage from '../pages/DetailPage';
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/test" element={<Test />} />
-        //NOTE - 테스트용 코드
-        <Route path="/write" element={<Write />} />
-        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/write" element={<WritePage />} />
+        <Route path="/detail/:id" element={<DetailPage />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </BrowserRouter>

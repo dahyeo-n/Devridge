@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+  //FIXME - 최종본에서 삭제
   userId: '1',
   title: '너무좋습니다.',
   content: '이회사일하기가너무좋아요',

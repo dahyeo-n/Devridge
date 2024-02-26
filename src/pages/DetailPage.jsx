@@ -18,41 +18,31 @@ function Detail() {
     }
   });
 
-  const editHandler = (e) => {
+  const passwordEditHandler = (e) => {
     e.preventDefault();
     if (review.password !== +password) {
       return alert('비밀번호가 틀렸습니다.');
     }
+    navigate('/write');
   };
 
-  const deleteHandler = (e) => {
+  const passwordDeleteHandler = (e) => {
     e.preventDefault();
     if (review.password !== +password) {
       return alert('비밀번호가 틀렸습니다.');
     }
     if (window.confirm('정말 삭제하시겠습니까?')) {
       mutateToDelete(review.id);
-      navigate('/'); // 추가
+      navigate('/');
     }
   };
 
   return (
     <PageContainer>
       <DetailContainer>
-        <Title
-          type="text"
-          placeholder="제목을 입력하세요."
-          disabled={true}
-          value={review.title}
-          onChange={(e) => setReview((prev) => ({ ...prev, title: e.target.value }))}
-        />
+        <Title>{review.title}</Title>
         <NicknameAndDate>{review.nickname + ' | ' + review.createdAt}</NicknameAndDate>
-        <Content
-          placeholder="내용을 입력하세요."
-          disabled={true}
-          value={review.content}
-          onChange={(e) => setReview((prev) => ({ ...prev, content: e.target.value }))}
-        />
+        <Content>{review.content}</Content>
         <SelectionContainer>
           <PasswordInput
             type="password"
@@ -60,8 +50,8 @@ function Detail() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <EditButton onClick={(e) => editHandler(e)}>Edit</EditButton>
-          <DeleteButton onClick={(e) => deleteHandler(e)}>Delete</DeleteButton>
+          <EditButton onClick={(e) => passwordEditHandler(e)}>Edit</EditButton>
+          <DeleteButton onClick={(e) => passwordDeleteHandler(e)}>Delete</DeleteButton>
         </SelectionContainer>
       </DetailContainer>
     </PageContainer>
@@ -85,7 +75,7 @@ const DetailContainer = styled.div`
   flex-direction: column;
 `;
 
-const Title = styled.input`
+const Title = styled.p`
   background-color: white;
   height: 60px;
   width: 100%;
@@ -108,15 +98,13 @@ const NicknameAndDate = styled.p`
   text-overflow: ellipsis;
 `;
 
-const Content = styled.textarea`
+const Content = styled.p`
   background-color: white;
   height: 500px;
   width: 100%;
   font-size: 20px;
   padding: 10px;
   margin: 10px 100%;
-  border: none;
-  resize: none;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
