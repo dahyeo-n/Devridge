@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { deleteReview } from 'api/reviews';
 import { useMutation, useQueryClient } from 'react-query';
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getReview } from 'store/modules/reviewSlice';
 
-function Detail() {
-  const reduxReview = useSelector((state) => state.review);
-  const [review, setReview] = useState(reduxReview);
+function DetailPage() {
+  const params = useParams();
+  const id = params.id;
+  const reduxReviews = useSelector((state) => state.review.review);
+  const [review, setReview] = useState(reduxReviews);
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const queryClient = useQueryClient();
   const { mutate: mutateToDelete } = useMutation({
     mutationFn: deleteReview,
@@ -37,6 +41,12 @@ function Detail() {
     }
   };
 
+  useEffect(() => {
+    const filteredReview = reduxReviews.filter((review) => review.id === id);
+    setReview(filteredReview[0]);
+    dispatch(getReview(filteredReview[0]));
+  }, []);
+
   return (
     <PageContainer>
       <DetailContainer>
@@ -58,7 +68,7 @@ function Detail() {
   );
 }
 
-export default Detail;
+export default DetailPage;
 
 const PageContainer = styled.div`
   display: flex;
