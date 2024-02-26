@@ -1,63 +1,33 @@
-const ADD_POST = 'posts/ADD_POST';
-const UPDATE_POST = 'posts/UPDATE_POST';
-const DELETE_POST = 'posts/DELETE_POST';
-const INIT = 'posts/INIT';
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = [];
-
-export const addPost = (payload) => {
-  return {
-    type: ADD_POST,
-    payload
-  };
+const initialState = {
+  review: []
 };
 
-export const updatePost = (payload) => {
-  return {
-    type: UPDATE_POST,
-    payload
-  };
-};
-
-export const deletePost = (payload) => {
-  return {
-    type: DELETE_POST,
-    payload
-  };
-};
-
-export const init = (payload) => {
-  return {
-    type: INIT,
-    payload
-  };
-};
-
-const reviewSlice = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_POST:
-      return [...state, action.payload];
-    case UPDATE_POST: {
-      const id = action.payload.id;
-      const updatedData = action.payload.updatedData;
-
-      return state.map((post) => {
-        if (post.id === id) {
-          return { ...post, ...updatedData };
-        } else {
-          return post;
+const reviewSlice = createSlice({
+  name: 'review',
+  initialState,
+  reducers: {
+    getReview: (state, action) => {
+      state.review = action.payload;
+    },
+    addReview: (state, action) => {
+      state.review.push(action.payload);
+    },
+    deleteReview: (state, action) => {
+      state.review.filter((item) => item.id !== action.payload.id);
+    },
+    updateReview: (state, action) => {
+      state.review.map((item) => {
+        if (item.id === action.payload.id) {
+          return { ...item, ...action.payload.updatedData };
         }
+        return item;
       });
     }
-    case DELETE_POST:
-      return state.filter(function (item) {
-        return item.id !== action.payload;
-      });
-    case INIT:
-      return action.payload;
-    default:
-      return state;
   }
-};
+});
 
-export default reviewSlice;
+export const { getReview, addReview, deleteReview, updateReview } = reviewSlice.actions;
+
+export default reviewSlice.reducer;

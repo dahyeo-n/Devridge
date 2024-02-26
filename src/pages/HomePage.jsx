@@ -3,11 +3,15 @@ import { Map, MapMarker, useKakaoLoader, CustomOverlayMap } from 'react-kakao-ma
 import Header from 'components/commons/Header';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { getReviewData } from '../api/reviewData';
+
 import { useQuery } from 'react-query';
+import { getReview } from 'store/modules/reviewSlice';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
 
 function HomePage() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const gotoDetailPage = (id) => {
     navigate(`detail/${id}`);
   };
@@ -21,6 +25,12 @@ function HomePage() {
   };
 
   const [loading, error] = useKakaoLoader({ appkey: `${process.env.REACT_APP_KAKAO_KEY}` });
+
+  const getReviewData = async () => {
+    const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}`);
+    dispatch(getReview(response.data));
+    return response.data;
+  };
 
   const { isLoading, isError, data } = useQuery('reviews', getReviewData);
 
