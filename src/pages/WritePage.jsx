@@ -64,12 +64,11 @@ const WritePage = () => {
                 lat: data[i].y,
                 lng: data[i].x
               },
-              content: data[i].place_name
+              correctCompanyName: data[i].place_name
             });
             bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
           }
           setMarkers(searchResultsMarkers);
-          console.log(searchResultsMarkers);
           // 검색된 장소 위치를 기준으로 지도 범위 재설정
           mapInstance.setBounds(bounds);
         }
@@ -110,7 +109,7 @@ const WritePage = () => {
       password,
       createdAt: new Date().toLocaleString('ko-KR'), // 'YYYY년 MM월 DD일'
       location: {
-        name: selectedMarkerInfo.content,
+        name: selectedMarkerInfo.correctCompanyName,
         latLng: {
           lat: selectedMarkerInfo.position.lat,
           lng: selectedMarkerInfo.position.lng
@@ -138,17 +137,6 @@ const WritePage = () => {
       setIsLoading(false);
     }
   };
-
-  // const submitCompanylocationInfoHandler = async (e) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     await axios.post(`${process.env.REACT_APP_SERVER_URL}`, { location: selectedMarkerInfo });
-  //   } catch (error) {
-  //     alert('회사 위치 정보를 불러오는 데 실패했습니다.');
-  //     console.log('Error => ', error);
-  //   }
-  // };
 
   const titleChangeHandler = (event) => setTitle(event.target.value);
   const nicknameChangeHandler = (event) => setNickname(event.target.value);
@@ -217,12 +205,12 @@ const WritePage = () => {
             >
               {markers.map((marker) => (
                 <MapMarker
-                  key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
+                  key={`marker-${marker.correctCompanyName}-${marker.position.lat},${marker.position.lng}`}
                   position={marker.position}
                   onClick={() => setSelectedMarkerInfo(marker)}
                 >
-                  {selectedMarkerInfo && selectedMarkerInfo.content === marker.content && (
-                    <div style={{ color: '#000' }}>{marker.content}</div>
+                  {selectedMarkerInfo && selectedMarkerInfo.correctCompanyName === marker.correctCompanyName && (
+                    <div style={{ color: '#000' }}>{marker.correctCompanyName}</div>
                   )}
                 </MapMarker>
               ))}

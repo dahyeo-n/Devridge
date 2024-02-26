@@ -267,6 +267,21 @@
           "lng": "127.037741518706"
         }
       }
+    },
+    {
+      "id": "5016ce9c-33c6-498e-a9ce-06edb995d721",
+      "title": "dddddddddddddd",
+      "content": "ddddddddddddddddddddddddddddddddddddddd",
+      "nickname": "dddddddddd",
+      "password": "2134",
+      "createdAt": "2024. 2. 26. 오전 11:50:16",
+      "location": {
+        "name": "CU 울산중산점",
+        "latLng": {
+          "lat": "35.6530963193479",
+          "lng": "129.349014914944"
+        }
+      }
     }
   ]
 }
