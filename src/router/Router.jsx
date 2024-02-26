@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Main from '../pages/Main';
-import Write from '../pages/Write';
-import Detail from '../pages/Detail';
+import Main from '../pages/MainPage';
+import Write from '../pages/WritePage';
+import Detail from '../pages/DetailPage';
 
 function Router() {
   return (

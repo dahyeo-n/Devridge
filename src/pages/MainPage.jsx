@@ -3,13 +3,13 @@ import { Map, MapMarker, useKakaoLoader, CustomOverlayMap } from 'react-kakao-ma
 import Header from 'components/commons/Header';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { getReview } from '../api/reviews';
+import { getReviewData } from '../api/reviewData';
 import { useQuery } from 'react-query';
 
 function Main() {
-  const navi = useNavigate();
+  const navigate = useNavigate();
   const gotoDetailPage = (id) => {
-    navi(`detail/${id}`);
+    navigate(`detail/${id}`);
   };
 
   const styleMap = {
@@ -20,26 +20,20 @@ function Main() {
     borderRadius: '5px'
   };
 
-  const [loading, error] = useKakaoLoader({
-    appkey: `${process.env.REACT_APP_KAKAO_KEY}`
-    // ...options // 추가 옵션
-  });
+  const [loading, error] = useKakaoLoader({ appkey: `${process.env.REACT_APP_KAKAO_KEY}` });
 
-  const { isLoading, isError, data } = useQuery('reviews', getReview);
+  const { isLoading, isError, data } = useQuery('reviews', getReviewData);
 
   if (isLoading) {
     console.log('로딩중입니다.');
-    // isLoading을 사용하여 데이터가 로딩중일 때 화면을 랜더링합니다.
     return <div>Loading...</div>;
   }
 
   if (isError) {
-    // isError를 사용하여 error가 발생할 때 화면을 랜더링합니다.
     return <div>오류!!!!</div>;
   }
 
-  const filterMapMarkerData = data.filter((data) => data).map((data) => data.location);
-  // console.log(filterMapMarkerData);
+  const filterMapData = data.filter((data) => data).map((data) => data.location);
 
   return (
     <>
@@ -47,9 +41,8 @@ function Main() {
 
       <StDevRidgeMainContainer>
         {/* 지도 나타내는 부분 */}
-
         <Map center={{ lat: 37.50232863613739, lng: 127.04444701396942 }} style={styleMap}>
-          {filterMapMarkerData.map((position) => (
+          {filterMapData.map((position) => (
             <>
               <MapMarker
                 position={position.latLng}
@@ -96,7 +89,7 @@ function Main() {
                   <StDevRidgeReplyCreatedAt>{data.createdAt}</StDevRidgeReplyCreatedAt>
                 </StDevRidgeReplyBody>
               </StDevRidgeReplyInfo>
-              {/* <StDevRidgeReplyContent>{data.content.slice(0, 20) + '...'}</StDevRidgeReplyContent> */}
+              <StDevRidgeReplyContent>{data.content.slice(0, 20) + '...'}</StDevRidgeReplyContent>
             </StDevRidgeReplyBorder>
           ))}
         </StDevRidgeReplyList>
@@ -195,12 +188,13 @@ const StDevRidgeReplyNickName = styled.p`
 
   padding-top: 2px;
 `;
-// const StDevRidgeReplyContent = styled.p`
-//   padding-bottom: 5px;
-//   color: #141315;
 
-//   padding-top: 2px;
-// `;
+const StDevRidgeReplyContent = styled.p`
+  padding-bottom: 5px;
+  color: #141315;
+
+  padding-top: 2px;
+`;
 
 const StDevRidgeReplyTitle = styled.h1`
   padding-left: 5px;
