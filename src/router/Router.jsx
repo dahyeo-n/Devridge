@@ -2,14 +2,12 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Main from '../pages/Main';
 import Write from '../pages/Write';
 import Detail from '../pages/Detail';
-import TestMain from 'pages/TestMain';
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Main />} /> */}
-        <Route path="/" element={<TestMain />} />
+        <Route path="/" element={<Main />} />
         <Route path="/write" element={<Write />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="*" element={<Navigate replace to="/" />} />
