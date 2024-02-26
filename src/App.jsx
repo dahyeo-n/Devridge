@@ -1,10 +1,10 @@
-import Router from './router/Router';
-import { Reset } from 'styled-reset';
+import GlobalStyle from 'GlobalStyle';
+import Router from '../src/router/Router';
 
 function App() {
   return (
     <>
-      <Reset />
+      <GlobalStyle />
       <Router />
     </>
   );
