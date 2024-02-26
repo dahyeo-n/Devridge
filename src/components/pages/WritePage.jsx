@@ -69,7 +69,7 @@ const WritePage = () => {
             bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
           }
           setMarkers(searchResultsMarkers);
-          console.log(markers);
+          console.log(searchResultsMarkers);
           // 검색된 장소 위치를 기준으로 지도 범위 재설정
           mapInstance.setBounds(bounds);
         }
