@@ -99,7 +99,7 @@ const WritePage = () => {
 
   const submitPostHandler = async (event) => {
     event.preventDefault();
-    if (!validateInput() || !selectedMarkerInfo) return;
+    if (!validateInput()) return;
 
     setIsLoading(true);
     const newPost = {
@@ -110,15 +110,13 @@ const WritePage = () => {
       password,
       createdAt: new Date().toLocaleString('ko-KR'), // 'YYYY년 MM월 DD일'
       location: {
-        name: locationName,
-        locationId: '2',
+        name: selectedMarkerInfo.content,
         latLng: {
           lat: selectedMarkerInfo.position.lat,
           lng: selectedMarkerInfo.position.lng
         }
       }
     };
-    // console.log(newPost); // 날짜 확인
 
     try {
       if (id) {
@@ -141,16 +139,16 @@ const WritePage = () => {
     }
   };
 
-  const submitCompanylocationInfoHandler = async (e) => {
-    e.preventDefault();
+  // const submitCompanylocationInfoHandler = async (e) => {
+  //   e.preventDefault();
 
-    try {
-      await axios.post(`${process.env.REACT_APP_SERVER_URL}`, { location: selectedMarkerInfo });
-    } catch (error) {
-      alert('회사 위치 정보를 불러오는 데 실패했습니다.');
-      console.log('Error => ', error);
-    }
-  };
+  //   try {
+  //     await axios.post(`${process.env.REACT_APP_SERVER_URL}`, { location: selectedMarkerInfo });
+  //   } catch (error) {
+  //     alert('회사 위치 정보를 불러오는 데 실패했습니다.');
+  //     console.log('Error => ', error);
+  //   }
+  // };
 
   const titleChangeHandler = (event) => setTitle(event.target.value);
   const nicknameChangeHandler = (event) => setNickname(event.target.value);
@@ -204,9 +202,7 @@ const WritePage = () => {
               onChange={(e) => locationNameChangeHandler(e)}
               required
             />
-            <button type="button" onClick={submitCompanylocationInfoHandler}>
-              등록
-            </button>
+
             <Map // 로드뷰 표시할 Container
               center={{
                 lat: 37.566826,
