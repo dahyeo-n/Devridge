@@ -1,18 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  id: 0,
-  title: '일하기너무좋은데요',
-  content: '이회사너무좋아요',
-  nickname: '배달맞점',
-  password: 1234,
-  createdAt: '2024-02-24',
+  userId: '1',
+  title: '너무좋습니다.',
+  content: '이회사일하기가너무좋아요',
+  nickname: '스파르탄',
+  password: 1241,
+  createdAt: '2024-02-25',
   location: {
-    name: '우아한형제들',
-    locationId: '0',
+    name: '팀스파르타',
+    locationId: '1',
     latLng: {
-      lat: 37.516978715488555,
-      lng: 127.11259630342774
+      lat: 37.50232863613739,
+      lng: 127.04444701396942
     }
   }
 };
