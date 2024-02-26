@@ -1,3 +1,287 @@
 {
-  "reviews": []
+  "reviews": [
+    {
+      "id": 0,
+      "reviewTitle": "일하기너무좋은데요",
+      "content": "이회사너무좋아요",
+      "nickname": "배달맞점",
+      "password": 1234,
+      "createdAt": "2024-02-24",
+      "location": {
+        "name": "우아한형제들",
+        "locationId": "0",
+        "latLng": {
+          "lat": 37.516978715488555,
+          "lng": 127.11259630342774
+        }
+      }
+    },
+    {
+      "id": 1,
+      "reviewTitle": "너무좋습니다.",
+      "content": "이회사일하기가너무좋아요",
+      "nickname": "스파르탄",
+      "password": 1241,
+      "createdAt": "2024-02-25",
+      "location": {
+        "name": "팀스파르타",
+        "locationId": "1",
+        "latLng": {
+          "lat": 37.50232863613739,
+          "lng": 127.04444701396942
+        }
+      }
+    },
+    {
+      "id": 2,
+      "reviewTitle": "빵이요",
+      "content": "이회사너무좋아요",
+      "nickname": "너무좋아용맞점",
+      "password": 1234,
+      "createdAt": "2024-02-24",
+      "location": {
+        "name": "비바리퍼블리카",
+        "locationId": "2",
+        "latLng": {
+          "lat": 37.49970763404374,
+          "lng": 127.03499685994211
+        }
+      }
+    },
+    {
+      "id": "7060",
+      "userId": "ed5c6e45-99dd-4c68-a38b-9d09320562d0",
+      "title": "제목",
+      "content": "내용",
+      "nickname": "닉네임",
+      "password": "1234",
+      "createdAt": "2024-02-24",
+      "location": {
+        "name": "배달의민족"
+      }
+    },
+    {
+      "id": "06b2",
+      "userId": "5dbb4609-1d9d-49a4-b2b2-e376052bc605",
+      "title": "테스트 제목",
+      "content": "내용 테스트 네이버",
+      "nickname": "닉네임 테스트",
+      "password": "1234",
+      "createdAt": "2024-02-24",
+      "location": {
+        "name": "네이버"
+      }
+    },
+    {
+      "id": "06b7",
+      "title": "테스트 제목",
+      "content": "내용 테스트 네이버",
+      "nickname": "닉네임 테스트",
+      "password": "1234",
+      "createdAt": "2024-02-24",
+      "location": {
+        "name": "비바리퍼블리카",
+        "locationId": "2",
+        "latLng": {
+          "lat": 37.49970763404374,
+          "lng": 127.03499685994211
+        }
+      }
+    },
+    {
+      "id": "d2b1a9fc-6d03-45a0-9c81-d55273daf71d",
+      "title": "제목 테스트 18:46",
+      "content": "내용내용내용ㅇㅇㅇㅇㅇㅇ",
+      "nickname": "닉네임",
+      "password": "1234",
+      "createdAt": "2024-02-25",
+      "location": {
+        "name": "당근마켓"
+      }
+    },
+    {
+      "id": "b3d4"
+    },
+    {
+      "id": "2b74"
+    },
+    {
+      "id": "7bc4"
+    },
+    {
+      "id": "046c"
+    },
+    {
+      "id": "2448"
+    },
+    {
+      "id": "1024"
+    },
+    {
+      "id": "a9e9"
+    },
+    {
+      "id": "a823"
+    },
+    {
+      "id": "17d9"
+    },
+    {
+      "id": "789e"
+    },
+    {
+      "id": "b703"
+    },
+    {
+      "id": "969d"
+    },
+    {
+      "id": "bcdd"
+    },
+    {
+      "id": "46f8"
+    },
+    {
+      "id": "606b"
+    },
+    {
+      "id": "88e5"
+    },
+    {
+      "id": "0690"
+    },
+    {
+      "id": "bd74"
+    },
+    {
+      "id": "61dd"
+    },
+    {
+      "id": "d7d5"
+    },
+    {
+      "id": "d0ee"
+    },
+    {
+      "id": "2210"
+    },
+    {
+      "id": "90c0"
+    },
+    {
+      "id": "7aab"
+    },
+    {
+      "id": "38ab"
+    },
+    {
+      "id": "e74e"
+    },
+    {
+      "id": "8c04"
+    },
+    {
+      "id": "2187"
+    },
+    {
+      "id": "f914"
+    },
+    {
+      "id": "33f0"
+    },
+    {
+      "id": "ddf2"
+    },
+    {
+      "id": "55ea",
+      "location": {
+        "position": {
+          "lat": "37.213943523237",
+          "lng": "127.037741518706"
+        },
+        "content": "삼겹의민족 병점직영점"
+      }
+    },
+    {
+      "id": "6d752f1e-aa9b-4a25-a85c-72caa166ba92",
+      "title": "ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
+      "content": "ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
+      "nickname": "ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
+      "password": "2134",
+      "createdAt": "2024. 2. 26. 오전 11:04:00",
+      "location": {
+        "name": "배달의민족",
+        "locationId": "2",
+        "latLng": {
+          "lat": "37.213943523237",
+          "lng": "127.037741518706"
+        }
+      }
+    },
+    {
+      "id": "813e",
+      "location": {
+        "position": {
+          "lat": "37.2841344416127",
+          "lng": "127.015773680232"
+        },
+        "content": "배민라이더스 수원점"
+      }
+    },
+    {
+      "id": "24ef",
+      "location": {
+        "position": {
+          "lat": "37.2841344416127",
+          "lng": "127.015773680232"
+        },
+        "content": "배민라이더스 수원점"
+      }
+    },
+    {
+      "id": "07455a57-e52c-4efc-995f-332516cf721d",
+      "title": "ddddddddddddddddddddd",
+      "content": "ddddddddddddddddddddddddddddddddd",
+      "nickname": "dddddddddd",
+      "password": "3243",
+      "createdAt": "2024. 2. 26. 오전 11:10:05",
+      "location": {
+        "name": "배달의민족",
+        "latLng": {
+          "lat": "35.872839119057",
+          "lng": "128.587764774849"
+        }
+      }
+    },
+    {
+      "id": "b0d70504-18a7-4dc3-b6aa-73b1027eefbe",
+      "title": "dddddddddddddddddddddddddddddd",
+      "content": "dddddddddddddddddddddddddddddddddd",
+      "nickname": "dddddddddd",
+      "password": "3242",
+      "createdAt": "2024. 2. 26. 오전 11:14:34",
+      "location": {
+        "name": "삼겹의민족 병점직영점",
+        "latLng": {
+          "lat": "37.213943523237",
+          "lng": "127.037741518706"
+        }
+      }
+    },
+    {
+      "id": "5016ce9c-33c6-498e-a9ce-06edb995d721",
+      "title": "dddddddddddddd",
+      "content": "ddddddddddddddddddddddddddddddddddddddd",
+      "nickname": "dddddddddd",
+      "password": "2134",
+      "createdAt": "2024. 2. 26. 오전 11:50:16",
+      "location": {
+        "name": "CU 울산중산점",
+        "latLng": {
+          "lat": "35.6530963193479",
+          "lng": "129.349014914944"
+        }
+      }
+    }
+  ]
 }
