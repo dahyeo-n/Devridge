@@ -1,3 +1,4 @@
+//FIXME - 공용 컴포넌트 수정하고 밑에 버튼 스타일 수정
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { deleteReview } from 'api/reviews';
@@ -58,7 +59,9 @@ function DetailPage() {
             type="password"
             placeholder="비밀번호를 입력해주세요."
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            minLength="4"
+            maxLength="4"
+            onChange={(e) => setPassword(+e.target.value)} //FIXME - 다현님 코드에 따라 수정
           />
           <EditButton onClick={(e) => passwordEditHandler(e)}>Edit</EditButton>
           <DeleteButton onClick={(e) => passwordDeleteHandler(e)}>Delete</DeleteButton>
@@ -95,6 +98,13 @@ const Title = styled.p`
   border-width: 0px;
   overflow: hidden;
   text-overflow: ellipsis;
+  //수정 후
+  box-shadow: 1px 1px 1px 1px #ccc;
+  border-radius: 10px;
+
+  &:hover {
+    box-shadow: 1px 1px 1px 1px #ccc;
+  }
 `;
 
 const NicknameAndDate = styled.p`
@@ -106,6 +116,13 @@ const NicknameAndDate = styled.p`
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;
+  // 수정 후
+  box-shadow: 1px 1px 1px 1px #ccc;
+  border-radius: 10px;
+
+  &:hover {
+    box-shadow: 1px 1px 1px 1px #ccc;
+  }
 `;
 
 const Content = styled.p`
@@ -117,6 +134,13 @@ const Content = styled.p`
   margin: 10px 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+  // 수정 후
+  box-shadow: 1px 1px 1px 1px #ccc;
+  border-radius: 10px;
+
+  &:hover {
+    box-shadow: 1px 1px 1px 1px #ccc;
+  }
 `;
 
 const SelectionContainer = styled.div`
@@ -129,12 +153,42 @@ const SelectionContainer = styled.div`
 
 const PasswordInput = styled.input`
   width: 160px;
+  // 수정 후
+  border-width: 0px;
+  box-shadow: 1px 1px 1px 1px #ccc;
+  border-radius: 10px;
+
+  &:hover {
+    box-shadow: 1px 1px 1px 1px #ccc;
+  }
 `;
 
 const EditButton = styled.button`
-  width: 50px;
+  /* width: 50px; */
+  margin: 10px;
+  padding: 4px;
+  border-radius: 4px;
+  border-color: #212529;
+  background-color: #212529;
+  color: #ffff;
+  cursor: pointer;
+  &:hover {
+    background-color: #2a292b;
+    border-color: #2a292b;
+  }
 `;
 
 const DeleteButton = styled.button`
-  width: 60px;
+  /* width: 60px; */
+  margin: 10px;
+  padding: 4px;
+  border-radius: 4px;
+  border-color: #212529;
+  background-color: #212529;
+  color: #ffff;
+  cursor: pointer;
+  &:hover {
+    background-color: #2a292b;
+    border-color: #2a292b;
+  }
 `;
