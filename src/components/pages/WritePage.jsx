@@ -118,7 +118,7 @@ const WritePage = () => {
         }
       }
     };
-    // console.log(newPost);
+    // console.log(newPost); // 날짜 확인
 
     try {
       if (id) {
