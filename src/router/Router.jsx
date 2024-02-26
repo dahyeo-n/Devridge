@@ -1,15 +1,15 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Main from '../pages/MainPage';
-import Write from '../pages/WritePage';
-import Detail from '../pages/DetailPage';
+import HomePage from '../pages/HomePage';
+import WritePage from '../pages/WritePage';
+import DetailPage from '../pages/DetailPage';
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/write" element={<Write />} />
-        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/write" element={<WritePage />} />
+        <Route path="/detail/:id" element={<DetailPage />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </BrowserRouter>
