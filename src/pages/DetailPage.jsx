@@ -5,6 +5,7 @@ import { useMutation, useQueryClient } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReview } from 'store/modules/reviewSlice';
+import Button from 'components/commons/Button';
 
 function DetailPage() {
   const params = useParams();
@@ -60,8 +61,8 @@ function DetailPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <EditButton onClick={(e) => passwordEditHandler(e)}>Edit</EditButton>
-          <DeleteButton onClick={(e) => passwordDeleteHandler(e)}>Delete</DeleteButton>
+          <Button onClick={(e) => passwordEditHandler(e)}>Edit</Button>
+          <Button onClick={(e) => passwordDeleteHandler(e)}>Delete</Button>
         </SelectionContainer>
       </DetailContainer>
     </PageContainer>
