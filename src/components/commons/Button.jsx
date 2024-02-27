@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 function Button(props) {
-  const { label, onClick, disabled } = props;
+  const { label, onClick } = props;
 
   return <StPublicBtn onClick={onClick}>{label}</StPublicBtn>;
 }
@@ -18,7 +18,7 @@ const StPublicBtn = styled.button`
   color: #ffff;
   cursor: pointer;
   &:hover {
-    background-color: #2a292b;
-    border-color: #2a292b;
+    background-color: #3f3e3f;
+    border-color: #3f3e3f;
   }
 `;
