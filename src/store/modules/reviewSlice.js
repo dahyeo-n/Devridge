@@ -20,7 +20,7 @@ const reviewSlice = createSlice({
     updateReview: (state, action) => {
       state.review.map((item) => {
         if (item.id === action.payload.id) {
-          return { ...item, ...action.payload.updatedData };
+          return { ...item, ...action.payload };
         }
         return item;
       });
