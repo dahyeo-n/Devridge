@@ -11,7 +11,7 @@ function Post({ posts, gotoDetailPage }) {
               gotoDetailPage(post.id);
             }}
           >
-            {post.title.slice(0, 2) + '...'}
+            {post.title.slice(0, 8) + '...'}
             <StDevRidgePostBody>
               <StDevRidgeNickName>
                 {post.nickname}| {post.location.name}
@@ -20,7 +20,7 @@ function Post({ posts, gotoDetailPage }) {
               <StDevRidgeCreateAt>{post.createdAt} </StDevRidgeCreateAt>
             </StDevRidgePostBody>
             <StDevRidgePostFoot>
-              <p>{post.content.slice(0, 4) + '....'} </p>
+              <p>{post.content.slice(0, 9) + '....'} </p>
             </StDevRidgePostFoot>
           </StDevRidgePost>
         </>

@@ -31,7 +31,7 @@ const StHeader = styled.header`
   align-items: center;
   justify-content: space-between; // 수정
   margin-bottom: 5px;
-  width: 100%; // 추가
+  width: 90%; // 추가
 `;
 
 const StH1Tag = styled.h1`
