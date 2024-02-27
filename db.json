@@ -80,13 +80,18 @@
       "title": "aaaaaaaaaaaaaaaaaaaaa",
       "content": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       "nickname": "aaaaaaaaaa",
+      "id": "242a858d-1b40-4fad-a6f3-f3e51451796f",
+      "title": "등록 ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
+      "content": "ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
+      "nickname": "ㅇㅇㅇㅇㅇㅇㅇ",
+
       "password": "0000",
-      "createdAt": "2024. 2. 26. 오후 10:09:13",
+      "createdAt": "2024. 2. 27. 오후 12:57:55",
       "location": {
-        "name": "트리플에이커피 포항이동점",
+        "name": "배달의민족 원주협력사",
         "latLng": {
-          "lat": "36.0283226267507",
-          "lng": "129.339747263522"
+          "lat": "37.3343018112791",
+          "lng": "127.948153144516"
         }
       }
     },

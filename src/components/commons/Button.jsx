@@ -19,6 +19,7 @@ const StPublicBtn = styled.button`
   cursor: pointer;
   &:hover {
     background-color: #3f3e3f;
+
     border-color: #3f3e3f;
   }
 `;
