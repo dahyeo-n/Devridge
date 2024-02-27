@@ -45,27 +45,29 @@ function DetailPage() {
   };
 
   return (
-    <PageContainer>
+    <>
       <Header />
-      <DetailContainer>
-        <Title>{review.title}</Title>
-        <NicknameAndDate>{review.nickname + ' | ' + review.createdAt}</NicknameAndDate>
-        <CompanyName>{review.location.name}</CompanyName>
-        <Content>{review.content}</Content>
-        <SelectionContainer>
-          <PasswordInput
-            type="password"
-            placeholder="비밀번호를 입력해주세요."
-            value={password}
-            minLength="4"
-            maxLength="4"
-            onChange={(e) => setPassword(+e.target.value)}
-          />
-          <Button onClick={(e) => passwordEditHandler(e)} label="Edit" />
-          <Button onClick={(e) => passwordDeleteHandler(e)} label="Delete" />
-        </SelectionContainer>
-      </DetailContainer>
-    </PageContainer>
+      <PageContainer>
+        <DetailContainer>
+          <Title>{review.title}</Title>
+          <NicknameAndDate>{review.nickname + ' | ' + review.createdAt}</NicknameAndDate>
+          <CompanyName>{review.location.name}</CompanyName>
+          <Content>{review.content}</Content>
+          <SelectionContainer>
+            <PasswordInput
+              type="password"
+              placeholder="비밀번호를 입력해주세요."
+              value={password}
+              minLength="4"
+              maxLength="4"
+              onChange={(e) => setPassword(+e.target.value)}
+            />
+            <Button onClick={(e) => passwordEditHandler(e)} label="Edit" />
+            <Button onClick={(e) => passwordDeleteHandler(e)} label="Delete" />
+          </SelectionContainer>
+        </DetailContainer>
+      </PageContainer>
+    </>
   );
 }
 
@@ -96,6 +98,7 @@ const Title = styled.h1`
   border-width: 0px;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
   box-shadow: 1px 1px 1px 1px #ccc;
   border-radius: 10px;
 `;
@@ -109,6 +112,7 @@ const NicknameAndDate = styled.p`
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
   box-shadow: 1px 1px 1px 1px #ccc;
   border-radius: 10px;
 `;
@@ -123,6 +127,7 @@ const CompanyName = styled.p`
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
   box-shadow: 1px 1px 1px 1px #ccc;
   border-radius: 10px;
 `;
@@ -132,6 +137,7 @@ const Content = styled.p`
   height: 500px;
   width: 100%;
   font-size: 20px;
+  line-height: 150%;
   padding: 10px;
   margin: 10px 100%;
   overflow: hidden;
