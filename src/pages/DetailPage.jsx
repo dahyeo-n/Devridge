@@ -85,7 +85,7 @@ export default DetailPage;
 const PageContainer = styled.div`
   display: flex;
   background-color: lightGray;
-  height: 110vh;
+  height: 100vh;
   align-items: center;
   flex-direction: column;
 `;
