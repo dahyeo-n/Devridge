@@ -1,22 +1,18 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-function Button() {
-  const navigate = useNavigate();
 
-  const goToWritePage = () => {
-    navigate(`/write`);
-  };
+function Button(props) {
+  const { label, onClick, disabled } = props;
 
-  return <StGoWritePageBtn onClick={goToWritePage}>글쓰기</StGoWritePageBtn>;
+  return <StPublicBtn onClick={onClick}>{label}</StPublicBtn>;
 }
 
 export default Button;
 
-const StGoWritePageBtn = styled.button`
-  margin: 10px;
-  padding: 4px;
-  border-radius: 4px;
+const StPublicBtn = styled.button`
+  margin: 0px 10px;
+  padding: 10px;
+  border-radius: 5px;
   border-color: #212529;
   background-color: #212529;
   color: #ffff;

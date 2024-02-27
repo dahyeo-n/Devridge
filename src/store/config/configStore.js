@@ -1,10 +1,9 @@
-import { createStore, combineReducers } from 'redux';
-import reviewSlice from '../modules/reviewSlice';
+import { configureStore } from '@reduxjs/toolkit';
+import review from 'store/modules/reviewSlice';
 
-const rootReducer = combineReducers({
-  reviewSlice
+const store = configureStore({
+  reducer: { review }
 });
 
-const store = createStore(rootReducer);
 
 export default store;

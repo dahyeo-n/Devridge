@@ -6,7 +6,7 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addPost, updatePost } from '../store/modules/reviewSlice';
+import { addReview, updateReview } from '../store/modules/reviewSlice';
 import Layout from '../components/commons/Layout';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
@@ -121,12 +121,12 @@ const WritePage = () => {
       if (id) {
         // 수정 로직
         await axios.put(`${process.env.REACT_APP_SERVER_URL}/${id}`, newPost);
-        dispatch(updatePost({ id, ...newPost }));
+        dispatch(updateReview({ id, ...newPost }));
         alert('게시글이 수정되었습니다.');
       } else {
         // 생성 로직
         await axios.post(`${process.env.REACT_APP_SERVER_URL}`, newPost);
-        dispatch(addPost(newPost));
+        dispatch(addReview(newPost));
         alert('새 게시글이 추가되었습니다.');
       }
       navigate('/');
