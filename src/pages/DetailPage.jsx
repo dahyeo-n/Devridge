@@ -85,7 +85,7 @@ export default DetailPage;
 const PageContainer = styled.div`
   display: flex;
   background-color: lightGray;
-  height: 100vh;
+  height: 105vh;
   align-items: center;
   flex-direction: column;
 `;
@@ -99,9 +99,9 @@ const DetailContainer = styled.div`
 
 const Title = styled.h1`
   background-color: white;
-  height: 60px;
+  height: 40px;
   width: 100%;
-  font-size: 40px;
+  font-size: 20px;
   padding: 10px;
   margin: 10px;
   border-width: 0px;
@@ -158,6 +158,7 @@ const Content = styled.p`
 const SelectionContainer = styled.div`
   display: flex;
   width: 100%;
+  margin-bottom: 10px;
   justify-content: flex-end;
   flex-direction: rows;
 `;
