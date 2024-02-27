@@ -46,12 +46,11 @@ function HomePage() {
 
   // 데이터를 받아오기전과 받아오기에 실패했을떄 보여질 화면
   if (isLoading) {
-    console.log('로딩중입니다.');
-    return <div>Loading...</div>;
+    return <p>Loading...</p>;
   }
 
   if (isError) {
-    return <div>오류!!!!</div>;
+    return <p>오류!!!!</p>;
   }
 
   // 지도화면에 뿌려지는 마커데이터
@@ -70,7 +69,6 @@ function HomePage() {
   return (
     <>
       <Header />
-
       <StDevRidgeMainContainer>
         {/* 지도 나타내는 부분 */}
         <Map center={{ lat: 37.50232863613739, lng: 127.04444701396942 }} style={styleMap}>

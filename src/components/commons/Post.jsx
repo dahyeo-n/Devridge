@@ -4,7 +4,7 @@ function Post({ posts, gotoDetailPage }) {
   return (
     <>
       {posts.map((post) => (
-        <>
+        <div key={post.id}>
           <StDevRidgePost
             key={post.id}
             onClick={() => {
@@ -23,7 +23,7 @@ function Post({ posts, gotoDetailPage }) {
               <p>{post.content.slice(0, 9) + '....'} </p>
             </StDevRidgePostFoot>
           </StDevRidgePost>
-        </>
+        </div>
       ))}
     </>
   );

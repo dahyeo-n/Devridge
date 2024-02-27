@@ -14,16 +14,16 @@ function Header() {
   };
 
   return (
-    <StHeader>
+    <StDevRidgeHeader>
       <StDevRidgeTitle onClick={gotoHome}>DevRidge</StDevRidgeTitle>
       <Button onClick={gotoWritePage} label={'글쓰기'} />
-    </StHeader>
+    </StDevRidgeHeader>
   );
 }
 
 export default Header;
 
-const StHeader = styled.header`
+const StDevRidgeHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
