@@ -73,7 +73,7 @@ const WritePage = () => {
           mapInstance.setBounds(bounds);
         }
       },
-      { size: 15, page: 3 }
+      { size: 15, page: 1 }
     );
   }, [mapInstance, locationName]);
 
@@ -160,37 +160,37 @@ const WritePage = () => {
       <Layout />
       <StPageWide>
         <form onSubmit={(e) => submitPostHandler(e)}>
-          <div>
-            <StTitleWriteBox
-              type="text"
-              value={title}
-              name="title"
-              placeholder="제목을 입력해주세요."
-              maxLength="40"
-              minLength="10"
-              onChange={titleChangeHandler}
-              required
-            />
-            {errors.title && <p style={{ color: 'red' }}>{errors.title}</p>}
-            <StNicknameWriteBox
-              type="text"
-              value={nickname}
-              name="nickname"
-              placeholder="닉네임을 입력해주세요."
-              maxLength="10"
-              minLength="1"
-              onChange={nicknameChangeHandler}
-              required
-            />
-            <StLocationNameWriteBox
-              type="input"
-              value={locationName}
-              name="locationName"
-              placeholder="재직하셨던 회사명을 입력해주세요."
-              onChange={(e) => locationNameChangeHandler(e)}
-              required
-            />
+          <StTitleWriteBox
+            type="text"
+            value={title}
+            name="title"
+            placeholder="제목을 입력해주세요."
+            maxLength="40"
+            minLength="10"
+            onChange={titleChangeHandler}
+            required
+          />
+          {errors.title && <p style={{ color: 'red' }}>{errors.title}</p>}
+          <StNicknameWriteBox
+            type="text"
+            value={nickname}
+            name="nickname"
+            placeholder="닉네임을 입력해주세요."
+            maxLength="10"
+            minLength="1"
+            onChange={nicknameChangeHandler}
+            required
+          />
+          <StLocationNameWriteBox
+            type="input"
+            value={locationName}
+            name="locationName"
+            placeholder="재직하셨던 회사명을 입력해주세요."
+            onChange={(e) => locationNameChangeHandler(e)}
+            required
+          />
 
+          <MapBox>
             <Map // 로드뷰 표시할 Container
               center={{
                 lat: 37.566826,
@@ -215,16 +215,18 @@ const WritePage = () => {
                 </MapMarker>
               ))}
             </Map>
-            <StContentWriteBox
-              as="textarea"
-              value={content}
-              name="content"
-              placeholder="내용을 입력해주세요."
-              maxLength="300"
-              minLength="10"
-              onChange={contentChangeHandler}
-              required
-            />
+          </MapBox>
+          <StContentWriteBox
+            as="textarea"
+            value={content}
+            name="content"
+            placeholder="내용을 입력해주세요."
+            maxLength="300"
+            minLength="10"
+            onChange={contentChangeHandler}
+            required
+          />
+          <StPwBtnWrap>
             <StPasswordWriteBox
               type="password"
               value={password}
@@ -235,15 +237,15 @@ const WritePage = () => {
               onChange={passwordChangeHandler}
               required
             />
-            <StWriteCancleCompleteBtn>
+            <StWriteCancelCompleteBtn>
               <Stbtn type="button" onClick={cancelBtnhandler}>
                 Cancel
               </Stbtn>
               <Stbtn type="submit" disabled={isLoading}>
                 {isLoading ? 'in progress...' : 'Complete'}
               </Stbtn>
-            </StWriteCancleCompleteBtn>
-          </div>
+            </StWriteCancelCompleteBtn>
+          </StPwBtnWrap>
         </form>
       </StPageWide>
     </div>
@@ -259,13 +261,9 @@ const StPageWide = styled.div`
   gap: 10px;
   font-weight: 200;
   width: 100%;
-  height: 800px;
-  min-width: 800px;
-  margin: auto;
-  padding: auto;
-  background-color: #1c1c20 !important;
+  height: 100vh;
+  background-color: lightgray;
   color: #fff !important;
-  border-radius: 20px;
   font-size: x-large;
 `;
 
@@ -277,8 +275,9 @@ const StTitleWriteBox = styled.input`
   padding: 15px;
   margin: 20px 10px 0px 10px;
   border-radius: 10px;
-  background-color: #1c1c20 !important;
-  font-size: 36px;
+  border: none;
+  background-color: #fff !important;
+  font-size: 20px;
   line-height: 230%;
   font-weight: bold;
   /* font-weight: 400; */
@@ -294,8 +293,9 @@ const StNicknameWriteBox = styled.input`
   padding: 15px;
   margin: 20px 10px 0px 10px;
   border-radius: 10px;
-  background-color: #1c1c20 !important;
-  font-size: 36px;
+  border: none;
+  background-color: #fff !important;
+  font-size: 20px;
   line-height: 230%;
   font-weight: bold;
   /* font-weight: 400; */
@@ -311,38 +311,45 @@ const StLocationNameWriteBox = styled.input`
   padding: 15px;
   margin: 20px 10px 0px 10px;
   border-radius: 10px;
-  background-color: #1c1c20 !important;
-  font-size: 36px;
+  border: none;
+  background-color: #fff !important;
+  font-size: 20px;
   line-height: 230%;
   font-weight: bold;
   /* font-weight: 400; */
   letter-spacing: -0.02px;
   color: #7472e7;
+`;
+
+const MapBox = styled.div`
+  width: 700px;
+  margin: 20px 10px 0px 10px;
 `;
 
 const StContentWriteBox = styled.textarea`
   width: 700px;
   height: 100px;
   padding: 15px;
-  margin: 0px 10px 0px 10px;
+  margin: 20px 10px 0px 10px;
   border-radius: 10px;
-  background-color: #1c1c20 !important;
-  color: #fff !important;
-  font-size: 28px;
-  font-weight: 600;
+  border: none;
+  background-color: #fff !important;
+  font-size: 20px;
+  font-weight: bold;
   align-items: baseline;
 `;
 
 const StPasswordWriteBox = styled.input`
-  width: 700px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   align-items: baseline;
   padding: 15px;
   margin: 20px 10px 0px 10px;
   border-radius: 10px;
-  background-color: #1c1c20 !important;
-  font-size: 36px;
+  border: none;
+  background-color: #fff !important;
+  font-size: 15px;
   line-height: 230%;
   font-weight: bold;
   /* font-weight: 400; */
@@ -350,7 +357,7 @@ const StPasswordWriteBox = styled.input`
   color: #7472e7;
 `;
 
-const StWriteCancleCompleteBtn = styled.div`
+const StWriteCancelCompleteBtn = styled.div`
   display: flex;
   justify-content: flex-end;
   border-radius: 10px;
@@ -365,4 +372,10 @@ const Stbtn = styled.button`
   color: white;
   background-color: #3e3e3e;
   border-radius: 10px;
+`;
+
+const StPwBtnWrap = styled.div`
+  width: 700px;
+  display: flex;
+  justify-content: center;
 `;

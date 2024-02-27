@@ -44,6 +44,21 @@
           "lng": "126.64928824100632"
         }
       }
+    },
+    {
+      "id": "f71a3423-78d8-43f6-b35b-52f4ba2ea408",
+      "title": "aaaaaaaaaaaaaaaaaaaaa",
+      "content": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "nickname": "aaaaaaaaaa",
+      "password": "0000",
+      "createdAt": "2024. 2. 26. 오후 10:09:13",
+      "location": {
+        "name": "트리플에이커피 포항이동점",
+        "latLng": {
+          "lat": "36.0283226267507",
+          "lng": "129.339747263522"
+        }
+      }
     }
   ]
 }
