@@ -1,4 +1,3 @@
-//FIXME - 공용 컴포넌트 수정하고 밑에 버튼 스타일 수정
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { deleteReview } from 'api/reviews';
@@ -101,7 +100,6 @@ const Title = styled.p`
   border-width: 0px;
   overflow: hidden;
   text-overflow: ellipsis;
-  //수정 후
   box-shadow: 1px 1px 1px 1px #ccc;
   border-radius: 10px;
 
@@ -119,7 +117,6 @@ const NicknameAndDate = styled.p`
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;
-  // 수정 후
   box-shadow: 1px 1px 1px 1px #ccc;
   border-radius: 10px;
 
@@ -137,7 +134,6 @@ const Content = styled.p`
   margin: 10px 100%;
   overflow: hidden;
   text-overflow: ellipsis;
-  // 수정 후
   box-shadow: 1px 1px 1px 1px #ccc;
   border-radius: 10px;
 
@@ -151,47 +147,16 @@ const SelectionContainer = styled.div`
   width: 100%;
   justify-content: flex-end;
   flex-direction: rows;
-  /* gap: 5px; */
 `;
 
 const PasswordInput = styled.input`
   width: 160px;
-  // 수정 후
   border-width: 0px;
   box-shadow: 1px 1px 1px 1px #ccc;
   border-radius: 10px;
+  margin-right: 10px;
 
   &:hover {
     box-shadow: 1px 1px 1px 1px #ccc;
-  }
-`;
-
-const EditButton = styled.button`
-  /* width: 50px; */
-  margin: 10px;
-  padding: 4px;
-  border-radius: 4px;
-  border-color: #212529;
-  background-color: #212529;
-  color: #ffff;
-  cursor: pointer;
-  &:hover {
-    background-color: #2a292b;
-    border-color: #2a292b;
-  }
-`;
-
-const DeleteButton = styled.button`
-  /* width: 60px; */
-  margin: 10px;
-  padding: 4px;
-  border-radius: 4px;
-  border-color: #212529;
-  background-color: #212529;
-  color: #ffff;
-  cursor: pointer;
-  &:hover {
-    background-color: #2a292b;
-    border-color: #2a292b;
   }
 `;
