@@ -12,7 +12,9 @@ function DetailPage() {
   const params = useParams();
   const id = params.id;
   const reduxReviews = useSelector((state) => state.review.review);
+  console.log(reduxReviews);
   const [review, setReview] = useState(reduxReviews);
+  console.log(review);
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
