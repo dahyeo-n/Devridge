@@ -13,8 +13,9 @@ function Button(props) {
 export default Button;
 
 const StGoWritePageBtn = styled.button`
-  margin-right: 50px;
-  margin-top: 10px;
+  /* margin-right: 50px; */
+  /* margin-top: 10px; */
+  margin: 0px 10px;
   padding: 10px;
   border-radius: 5px;
   border-color: #212529;

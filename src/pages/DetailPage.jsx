@@ -7,6 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReview } from 'store/modules/reviewSlice';
 import Header from 'components/commons/Header';
+import Button from 'components/commons/Button';
 
 function DetailPage() {
   const params = useParams();
@@ -65,8 +66,8 @@ function DetailPage() {
             maxLength="4"
             onChange={(e) => setPassword(+e.target.value)}
           />
-          <EditButton onClick={(e) => passwordEditHandler(e)}>Edit</EditButton>
-          <DeleteButton onClick={(e) => passwordDeleteHandler(e)}>Delete</DeleteButton>
+          <Button onClick={(e) => passwordEditHandler(e)} label="Edit" />
+          <Button onClick={(e) => passwordDeleteHandler(e)} label="Delete" />
         </SelectionContainer>
       </DetailContainer>
     </PageContainer>
@@ -78,7 +79,7 @@ export default DetailPage;
 const PageContainer = styled.div`
   display: flex;
   background-color: lightGray;
-  height: 100vh;
+  height: 110vh;
   align-items: center;
   flex-direction: column;
 `;
@@ -150,7 +151,7 @@ const SelectionContainer = styled.div`
   width: 100%;
   justify-content: flex-end;
   flex-direction: rows;
-  gap: 5px;
+  /* gap: 5px; */
 `;
 
 const PasswordInput = styled.input`
