@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { deleteReview } from 'api/reviews';
 import { useMutation, useQueryClient } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getReview } from 'store/modules/reviewSlice';
 import Header from 'components/commons/Header';
 import Button from 'components/commons/Button';
 
@@ -12,9 +11,7 @@ function DetailPage() {
   const params = useParams();
   const id = params.id;
   const reduxReviews = useSelector((state) => state.review.review);
-  console.log(reduxReviews);
-  const [review, setReview] = useState(reduxReviews);
-  console.log(review);
+  const [review] = reduxReviews.filter((review) => review.id === id);
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -31,6 +28,7 @@ function DetailPage() {
     if (review.password !== +password) {
       return alert('비밀번호가 틀렸습니다.');
     }
+    dispatch(review);
     navigate('/write');
   };
 
@@ -45,18 +43,13 @@ function DetailPage() {
     }
   };
 
-  useEffect(() => {
-    const filteredReview = reduxReviews.filter((review) => review.id === id);
-    setReview(filteredReview[0]);
-    dispatch(getReview(filteredReview[0]));
-  }, []);
-
   return (
     <PageContainer>
       <Header />
       <DetailContainer>
         <Title>{review.title}</Title>
         <NicknameAndDate>{review.nickname + ' | ' + review.createdAt}</NicknameAndDate>
+        <CompanyName>{review.location.name}</CompanyName>
         <Content>{review.content}</Content>
         <SelectionContainer>
           <PasswordInput
@@ -92,7 +85,7 @@ const DetailContainer = styled.div`
   flex-direction: column;
 `;
 
-const Title = styled.p`
+const Title = styled.h1`
   background-color: white;
   height: 60px;
   width: 100%;
@@ -104,10 +97,6 @@ const Title = styled.p`
   text-overflow: ellipsis;
   box-shadow: 1px 1px 1px 1px #ccc;
   border-radius: 10px;
-
-  &:hover {
-    box-shadow: 1px 1px 1px 1px #ccc;
-  }
 `;
 
 const NicknameAndDate = styled.p`
@@ -121,10 +110,20 @@ const NicknameAndDate = styled.p`
   text-overflow: ellipsis;
   box-shadow: 1px 1px 1px 1px #ccc;
   border-radius: 10px;
+`;
 
-  &:hover {
-    box-shadow: 1px 1px 1px 1px #ccc;
-  }
+const CompanyName = styled.p`
+  background-color: white;
+  margin: 10px 0px 0px 0px;
+  padding: 10px;
+  width: 100%;
+  height: 40px;
+  font-size: 15px;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 1px 1px 1px 1px #ccc;
+  border-radius: 10px;
 `;
 
 const Content = styled.p`
@@ -138,10 +137,6 @@ const Content = styled.p`
   text-overflow: ellipsis;
   box-shadow: 1px 1px 1px 1px #ccc;
   border-radius: 10px;
-
-  &:hover {
-    box-shadow: 1px 1px 1px 1px #ccc;
-  }
 `;
 
 const SelectionContainer = styled.div`
@@ -157,8 +152,4 @@ const PasswordInput = styled.input`
   box-shadow: 1px 1px 1px 1px #ccc;
   border-radius: 10px;
   margin-right: 10px;
-
-  &:hover {
-    box-shadow: 1px 1px 1px 1px #ccc;
-  }
 `;
