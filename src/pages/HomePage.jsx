@@ -19,7 +19,7 @@ function HomePage() {
   // 현재페이지
   const [currentPage, setCurrentPage] = useState(1);
   // 페이지별 포스트되는 게시물 개수
-  const [postPerPage, setPostPerPage] = useState(2);
+  const [postPerPage, setPostPerPage] = useState(3);
 
   const gotoDetailPage = (id) => {
     navigate(`detail/${id}`);

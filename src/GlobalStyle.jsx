@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+
 const GlobalStyle = createGlobalStyle`
    /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -22,16 +23,21 @@ time, mark, audio, video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+ 
     vertical-align: baseline;
+    
+   
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
+
+ 
 }
 body {
     line-height: 1;
+  
 }
 ol, ul {
     list-style: none;
@@ -51,6 +57,17 @@ table {
 }
   * {
       box-sizing: border-box;
-  }`;
+      
+      @font-face {
+    font-family: serif;
+    src: url("./font/malgun.ttf");
+  }
+  }
+  
+
+  
+
+  
+  `;
 
 export default GlobalStyle;
