@@ -5,6 +5,8 @@ import { useMutation, useQueryClient } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReview } from 'store/modules/reviewSlice';
+import Header from 'components/commons/Header';
+import Button from 'components/commons/Button';
 
 function DetailPage() {
   const params = useParams();
@@ -49,6 +51,7 @@ function DetailPage() {
 
   return (
     <PageContainer>
+      <Header />
       <DetailContainer>
         <Title>{review.title}</Title>
         <NicknameAndDate>{review.nickname + ' | ' + review.createdAt}</NicknameAndDate>
@@ -58,10 +61,12 @@ function DetailPage() {
             type="password"
             placeholder="비밀번호를 입력해주세요."
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            minLength="4"
+            maxLength="4"
+            onChange={(e) => setPassword(+e.target.value)}
           />
-          <EditButton onClick={(e) => passwordEditHandler(e)}>Edit</EditButton>
-          <DeleteButton onClick={(e) => passwordDeleteHandler(e)}>Delete</DeleteButton>
+          <Button onClick={(e) => passwordEditHandler(e)} label="Edit" />
+          <Button onClick={(e) => passwordDeleteHandler(e)} label="Delete" />
         </SelectionContainer>
       </DetailContainer>
     </PageContainer>
@@ -73,7 +78,7 @@ export default DetailPage;
 const PageContainer = styled.div`
   display: flex;
   background-color: lightGray;
-  height: 100vh;
+  height: 110vh;
   align-items: center;
   flex-direction: column;
 `;
@@ -95,6 +100,12 @@ const Title = styled.p`
   border-width: 0px;
   overflow: hidden;
   text-overflow: ellipsis;
+  box-shadow: 1px 1px 1px 1px #ccc;
+  border-radius: 10px;
+
+  &:hover {
+    box-shadow: 1px 1px 1px 1px #ccc;
+  }
 `;
 
 const NicknameAndDate = styled.p`
@@ -106,6 +117,12 @@ const NicknameAndDate = styled.p`
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;
+  box-shadow: 1px 1px 1px 1px #ccc;
+  border-radius: 10px;
+
+  &:hover {
+    box-shadow: 1px 1px 1px 1px #ccc;
+  }
 `;
 
 const Content = styled.p`
@@ -117,6 +134,12 @@ const Content = styled.p`
   margin: 10px 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+  box-shadow: 1px 1px 1px 1px #ccc;
+  border-radius: 10px;
+
+  &:hover {
+    box-shadow: 1px 1px 1px 1px #ccc;
+  }
 `;
 
 const SelectionContainer = styled.div`
@@ -124,17 +147,16 @@ const SelectionContainer = styled.div`
   width: 100%;
   justify-content: flex-end;
   flex-direction: rows;
-  gap: 5px;
 `;
 
 const PasswordInput = styled.input`
   width: 160px;
-`;
+  border-width: 0px;
+  box-shadow: 1px 1px 1px 1px #ccc;
+  border-radius: 10px;
+  margin-right: 10px;
 
-const EditButton = styled.button`
-  width: 50px;
-`;
-
-const DeleteButton = styled.button`
-  width: 60px;
+  &:hover {
+    box-shadow: 1px 1px 1px 1px #ccc;
+  }
 `;
