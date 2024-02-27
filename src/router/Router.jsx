@@ -9,6 +9,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/write" element={<WritePage />} />
+        <Route path="/write/:id" element={<WritePage />} />
         <Route path="/detail/:id" element={<DetailPage />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>

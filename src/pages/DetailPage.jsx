@@ -30,7 +30,7 @@ function DetailPage() {
       return alert('비밀번호가 틀렸습니다.');
     }
     dispatch(getReview(review));
-    navigate('/write');
+    navigate(`/write/${id}`);
   };
 
   const passwordDeleteHandler = (e) => {
