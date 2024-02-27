@@ -6,6 +6,7 @@ import { useMutation, useQueryClient } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReview } from 'store/modules/reviewSlice';
+import Header from 'components/commons/Header';
 
 function DetailPage() {
   const params = useParams();
@@ -50,6 +51,7 @@ function DetailPage() {
 
   return (
     <PageContainer>
+      <Header />
       <DetailContainer>
         <Title>{review.title}</Title>
         <NicknameAndDate>{review.nickname + ' | ' + review.createdAt}</NicknameAndDate>
@@ -61,7 +63,7 @@ function DetailPage() {
             value={password}
             minLength="4"
             maxLength="4"
-            onChange={(e) => setPassword(+e.target.value)} //FIXME - 다현님 코드에 따라 수정
+            onChange={(e) => setPassword(+e.target.value)}
           />
           <EditButton onClick={(e) => passwordEditHandler(e)}>Edit</EditButton>
           <DeleteButton onClick={(e) => passwordDeleteHandler(e)}>Delete</DeleteButton>
