@@ -104,7 +104,7 @@ function HomePage() {
           ))}
         </Map>
         <StDevRidgeReview>
-          <Post posts={currentPosts(reviewData)} gotoDetailPage={gotoDetailPage} />
+          <Post posts={currentPosts(data)} gotoDetailPage={gotoDetailPage} />
           <Pagination postsPerPage={postPerPage} totalPosts={reviewData.length} paginate={setCurrentPage}></Pagination>
         </StDevRidgeReview>
       </StDevRidgeMainContainer>

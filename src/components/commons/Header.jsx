@@ -1,13 +1,24 @@
 import styled from 'styled-components';
-import { WriteButton } from '../commons/Button';
+import Button from '../commons/Button';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
+  const navigate = useNavigate();
+
+  const gotoWritePage = () => {
+    navigate(`/write`);
+  };
+
+  const gotoHome = () => {
+    navigate(`/`);
+  };
+
   return (
     <>
       <StHeader>
-        <StH1Tag>DevRidge</StH1Tag>
+        <StH1Tag onClick={gotoHome}>DevRidge</StH1Tag>
 
-        <WriteButton />
+        <Button onClick={gotoWritePage} label={'글쓰기'} />
       </StHeader>
     </>
   );
@@ -31,4 +42,5 @@ const StH1Tag = styled.h1`
   font-weight: 600px;
   font-size: 25px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  cursor: pointer;
 `;
