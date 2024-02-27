@@ -101,30 +101,43 @@ const WritePage = () => {
     if (!validateInput()) return;
 
     setIsLoading(true);
-    const newPost = {
-      id: uuidv4(),
-      title,
-      content,
-      nickname,
-      password,
-      createdAt: new Date().toLocaleString('ko-KR'), // 'YYYY년 MM월 DD일'
-      location: {
-        name: selectedMarkerInfo.correctCompanyName,
-        latLng: {
-          lat: selectedMarkerInfo.position.lat,
-          lng: selectedMarkerInfo.position.lng
-        }
-      }
-    };
-
     try {
       if (id) {
         // 수정 로직
-        await axios.put(`${process.env.REACT_APP_SERVER_URL}/${id}`, newPost);
-        dispatch(updateReview({ id, ...newPost }));
+        const updatedData = {
+          title,
+          content,
+          nickname,
+          password,
+          location: {
+            name: selectedMarkerInfo.correctCompanyName,
+            latLng: {
+              lat: selectedMarkerInfo.position.lat,
+              lng: selectedMarkerInfo.position.lng
+            }
+          }
+        };
+        await axios.put(`${process.env.REACT_APP_SERVER_URL}/${id}`, updatedData);
+        dispatch(updateReview(id, updatedData));
         alert('게시글이 수정되었습니다.');
+        navigate(`/detail/${id}`);
       } else {
         // 생성 로직
+        const newPost = {
+          id: uuidv4(),
+          title,
+          content,
+          nickname,
+          password,
+          createdAt: new Date().toLocaleString('ko-KR'), // 'YYYY년 MM월 DD일'
+          location: {
+            name: selectedMarkerInfo.correctCompanyName,
+            latLng: {
+              lat: selectedMarkerInfo.position.lat,
+              lng: selectedMarkerInfo.position.lng
+            }
+          }
+        };
         await axios.post(`${process.env.REACT_APP_SERVER_URL}`, newPost);
         dispatch(addReview(newPost));
         alert('새 게시글이 추가되었습니다.');
