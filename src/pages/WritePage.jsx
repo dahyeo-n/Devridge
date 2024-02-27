@@ -171,9 +171,9 @@ const WritePage = () => {
             type="text"
             value={title}
             name="title"
-            placeholder="제목을 입력해주세요."
-            maxLength="40"
+            placeholder="제목을 입력해주세요. (최소 10자, 최대 40자)"
             minLength="10"
+            maxLength="40"
             onChange={titleChangeHandler}
             required
           />
@@ -182,9 +182,9 @@ const WritePage = () => {
             type="text"
             value={nickname}
             name="nickname"
-            placeholder="닉네임을 입력해주세요."
-            maxLength="10"
+            placeholder="닉네임을 입력해주세요. (최소 1자, 최대 10자)"
             minLength="1"
+            maxLength="10"
             onChange={nicknameChangeHandler}
             required
           />
@@ -227,9 +227,9 @@ const WritePage = () => {
             as="textarea"
             value={content}
             name="content"
-            placeholder="내용을 입력해주세요."
-            maxLength="300"
+            placeholder="내용을 입력해주세요. (최소 10자, 최대 300자)"
             minLength="10"
+            maxLength="300"
             onChange={contentChangeHandler}
             required
           />
@@ -239,8 +239,8 @@ const WritePage = () => {
               value={password}
               name="password"
               placeholder="비밀번호 4자리"
-              maxLength="4"
               minLength="4"
+              maxLength="4"
               onChange={passwordChangeHandler}
               required
             />
@@ -268,7 +268,7 @@ const StPageWide = styled.div`
   gap: 10px;
   font-weight: 200;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: lightgray;
   color: #fff !important;
   font-size: x-large;
@@ -279,7 +279,7 @@ const StTitleWriteBox = styled.input`
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  padding: 15px;
+  padding: 0px 0px 0px 15px;
   margin: 20px 10px 0px 10px;
   border-radius: 10px;
   border: none;
@@ -297,8 +297,8 @@ const StNicknameWriteBox = styled.input`
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  padding: 15px;
-  margin: 20px 10px 0px 10px;
+  padding: 0px 0px 0px 15px;
+  margin: 10px 10px 0px 10px;
   border-radius: 10px;
   border: none;
   background-color: #fff !important;
@@ -315,8 +315,8 @@ const StLocationNameWriteBox = styled.input`
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  padding: 15px;
-  margin: 20px 10px 0px 10px;
+  padding: 0px 0px 0px 15px;
+  margin: 10px 10px 0px 10px;
   border-radius: 10px;
   border: none;
   background-color: #fff !important;
@@ -330,20 +330,21 @@ const StLocationNameWriteBox = styled.input`
 
 const MapBox = styled.div`
   width: 700px;
-  margin: 20px 10px 0px 10px;
+  margin: 10px 10px 0px 10px;
 `;
 
 const StContentWriteBox = styled.textarea`
   width: 700px;
   height: 100px;
   padding: 15px;
-  margin: 20px 10px 0px 10px;
+  margin: 10px 10px 0px 10px;
   border-radius: 10px;
   border: none;
   background-color: #fff !important;
   font-size: 20px;
   font-weight: bold;
   align-items: baseline;
+  resize: none;
 `;
 
 const StPasswordWriteBox = styled.input`
@@ -351,8 +352,8 @@ const StPasswordWriteBox = styled.input`
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  padding: 15px;
-  margin: 20px 10px 0px 10px;
+  padding: 0px 0px 0px 15px;
+  margin: 10px 10px 0px 10px;
   border-radius: 10px;
   border: none;
   background-color: #fff !important;
