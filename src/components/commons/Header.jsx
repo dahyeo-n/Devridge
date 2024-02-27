@@ -14,13 +14,10 @@ function Header() {
   };
 
   return (
-    <>
-      <StHeader>
-        <StH1Tag onClick={gotoHome}>DevRidge</StH1Tag>
-
-        <Button onClick={gotoWritePage} label={'글쓰기'} />
-      </StHeader>
-    </>
+    <StHeader>
+      <StDevRidgeTitle onClick={gotoHome}>DevRidge</StDevRidgeTitle>
+      <Button onClick={gotoWritePage} label={'글쓰기'} />
+    </StHeader>
   );
 }
 
@@ -29,12 +26,12 @@ export default Header;
 const StHeader = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between; // 수정
+  justify-content: space-between;
   margin-bottom: 5px;
-  width: 90%; // 추가
+  width: 90%;
 `;
 
-const StH1Tag = styled.h1`
+const StDevRidgeTitle = styled.h1`
   width: 71px;
   height: 32px;
   margin: 10px;
