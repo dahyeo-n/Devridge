@@ -2,15 +2,15 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-export function WriteButton() {
-  const navigate = useNavigate();
+function Button(props) {
+  console.log(props);
 
-  const goToWritePage = () => {
-    navigate(`/write`);
-  };
+  const { label, onClick, disabled } = props;
 
-  return <StGoWritePageBtn onClick={goToWritePage}>글쓰기</StGoWritePageBtn>;
+  return <StGoWritePageBtn onClick={onClick}>{label}</StGoWritePageBtn>;
 }
+
+export default Button;
 
 const StGoWritePageBtn = styled.button`
   margin-right: 50px;

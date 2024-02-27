@@ -89,36 +89,6 @@
           "lng": "127.131575934186"
         }
       }
-    },
-    {
-      "id": "acfd749a-b72f-42bf-b149-3fce177066f3",
-      "title": "qweeqweqweqwewqeqw",
-      "content": "asdasdasdasdasd",
-      "nickname": "asdasdasda",
-      "password": "1234",
-      "createdAt": "2024. 2. 26. 오후 9:03:41",
-      "location": {
-        "name": "카카오프렌즈 강남플래그십스토어",
-        "latLng": {
-          "lat": "37.5008934694709",
-          "lng": "127.025811882515"
-        }
-      }
-    },
-    {
-      "id": "302d98c9-25c7-4631-b8b7-0316e2370e96",
-      "title": "qweeqweqweqwewqeqw",
-      "content": "asdasdasdasdasd",
-      "nickname": "asdasdasda",
-      "password": "1234",
-      "createdAt": "2024. 2. 26. 오후 9:03:50",
-      "location": {
-        "name": "카카오프렌즈 강남플래그십스토어",
-        "latLng": {
-          "lat": "37.5008934694709",
-          "lng": "127.025811882515"
-        }
-      }
     }
   ]
 }
