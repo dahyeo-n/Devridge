@@ -39,6 +39,7 @@ function HomePage() {
     const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}`);
 
     dispatch(getReview(data));
+    console.log(data);
     return data;
   };
 
