@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Map, MapMarker, useKakaoLoader, CustomOverlayMap } from 'react-kakao-maps-sdk';
 import Header from 'components/commons/Header';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-
+import Post from '../components/commons/Post';
 import { useQuery } from 'react-query';
 import { getReview } from 'store/modules/reviewSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import Pagination from 'components/commons/Pagination';
 
 function HomePage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const reviewData = useSelector((state) => state.review.review);
+
+  // 현재페이지
+  const [currentPage, setCurrentPage] = useState(1);
+  // 페이지별 포스트되는 게시물 개수
+  const [postPerPage, setPostPerPage] = useState(2);
+
   const gotoDetailPage = (id) => {
     navigate(`detail/${id}`);
   };
@@ -27,13 +36,15 @@ function HomePage() {
   const [loading, error] = useKakaoLoader({ appkey: `${process.env.REACT_APP_KAKAO_KEY}` });
 
   const getReviewData = async () => {
-    const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}`);
-    dispatch(getReview(response.data));
-    return response.data;
+    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}`);
+
+    dispatch(getReview(data));
+    return data;
   };
 
   const { isLoading, isError, data } = useQuery('reviews', getReviewData);
 
+  // 데이터를 받아오기전과 받아오기에 실패했을떄 보여질 화면
   if (isLoading) {
     console.log('로딩중입니다.');
     return <div>Loading...</div>;
@@ -43,7 +54,18 @@ function HomePage() {
     return <div>오류!!!!</div>;
   }
 
+  // 지도화면에 뿌려지는 마커데이터
   const filterMapData = data.filter((data) => data).map((data) => data.location);
+
+  const lastPageIndex = currentPage * postPerPage;
+  const firstPageIndex = lastPageIndex - postPerPage;
+
+  const currentPosts = (data) => {
+    let currentPosts = 0;
+    currentPosts = data.slice(firstPageIndex, lastPageIndex);
+
+    return currentPosts;
+  };
 
   return (
     <>
@@ -81,34 +103,21 @@ function HomePage() {
             </>
           ))}
         </Map>
-
-        <StDevRidgeReplyList>
-          {data.map((data) => (
-            <StDevRidgeReplyBorder
-              key={data.id}
-              onClick={() => {
-                gotoDetailPage(data.id);
-              }}
-            >
-              <StDevRidgeReplyInfo>
-                <StDevRidgeReplyTitle>{data.title}</StDevRidgeReplyTitle>
-                <StDevRidgeReplyBody>
-                  <StDevRidgeReplyNickName>
-                    {data.nickname}|<StDevRidgeCompanyName>{data.location.name}</StDevRidgeCompanyName>
-                  </StDevRidgeReplyNickName>
-                  <StDevRidgeReplyCreatedAt>{data.createdAt}</StDevRidgeReplyCreatedAt>
-                </StDevRidgeReplyBody>
-              </StDevRidgeReplyInfo>
-              <StDevRidgeReplyContent>{data.content.slice(0, 20) + '...'}</StDevRidgeReplyContent>
-            </StDevRidgeReplyBorder>
-          ))}
-        </StDevRidgeReplyList>
+        <StDevRidgeReview>
+          <Post posts={currentPosts(reviewData)} />
+          <Pagination postsPerPage={postPerPage} totalPosts={reviewData.length} paginate={setCurrentPage}></Pagination>
+        </StDevRidgeReview>
       </StDevRidgeMainContainer>
     </>
   );
 }
 
 export default HomePage;
+
+const StDevRidgeReview = styled.div`
+  list-style-type: none;
+  padding: 40px;
+`;
 
 const StCustomOverlay = styled.div`
   position: relative;
@@ -155,65 +164,4 @@ const StDevRidgeMainContainer = styled.main`
   display: flex;
   flex-direction: row;
   align-items: center;
-`;
-
-const StDevRidgeReplyList = styled.article`
-  margin: 10px;
-`;
-
-const StDevRidgeReplyBody = styled.div`
-  display: flex;
-  justify-content: space-between;
-  font-size: 8px;
-  margin: 5px;
-`;
-
-const StDevRidgeReplyBorder = styled.figure`
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-  box-shadow: 1px 1px 1px 1px #ccc;
-  width: 500px;
-
-  border-radius: 10px;
-  cursor: pointer;
-
-  &:hover {
-    box-shadow: 1px 1px 1px 1px #ccc;
-  }
-`;
-
-const StDevRidgeReplyInfo = styled.figcaption`
-  margin: 10px;
-`;
-
-const StDevRidgeCompanyName = styled.b`
-  font-weight: bolder;
-  color: #141315;
-`;
-
-const StDevRidgeReplyNickName = styled.p`
-  padding-bottom: 5px;
-  color: #141315;
-
-  padding-top: 2px;
-`;
-
-const StDevRidgeReplyContent = styled.p`
-  padding-bottom: 5px;
-  color: #141315;
-
-  padding-top: 2px;
-`;
-
-const StDevRidgeReplyTitle = styled.h1`
-  padding-left: 5px;
-  font-size: 14px;
-  font-weight: bolder;
-  padding-top: 10px;
-`;
-
-const StDevRidgeReplyCreatedAt = styled.small`
-  padding-left: 220px;
-  color: #636263;
 `;

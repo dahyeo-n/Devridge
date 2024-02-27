@@ -15,8 +15,8 @@ export default Button;
 
 const StGoWritePageBtn = styled.button`
   margin: 10px;
-  padding: 4px;
-  border-radius: 4px;
+  padding: 10px;
+  border-radius: 5px;
   border-color: #212529;
   background-color: #212529;
   color: #ffff;
