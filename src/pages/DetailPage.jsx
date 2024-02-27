@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { deleteReview } from 'api/reviews';
 import { useMutation, useQueryClient } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from 'components/commons/Header';
 import Button from 'components/commons/Button';
 import { getReview } from 'store/modules/reviewSlice';
+import axios from 'axios';
 
 function DetailPage() {
   const params = useParams();
@@ -18,7 +18,7 @@ function DetailPage() {
   const dispatch = useDispatch();
   const queryClient = useQueryClient();
   const { mutate: mutateToDelete } = useMutation({
-    mutationFn: deleteReview,
+    mutationFn: async (id) => await axios.delete(`${process.env.REACT_APP_SERVER_URL}/${id}`),
     onSuccess: async () => {
       await queryClient.invalidateQueries(['reviews']);
     }
@@ -26,7 +26,7 @@ function DetailPage() {
 
   const passwordEditHandler = (e) => {
     e.preventDefault();
-    if (review.password !== +password) {
+    if (+review.password !== password) {
       return alert('비밀번호가 틀렸습니다.');
     }
     dispatch(getReview(review));
@@ -35,7 +35,7 @@ function DetailPage() {
 
   const passwordDeleteHandler = (e) => {
     e.preventDefault();
-    if (review.password !== +password) {
+    if (+review.password !== password) {
       return alert('비밀번호가 틀렸습니다.');
     }
     if (window.confirm('정말 삭제하시겠습니까?')) {

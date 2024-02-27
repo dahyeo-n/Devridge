@@ -42,7 +42,7 @@ const StPaginationBtn = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: #4c4d4c;
-    border-color: #4c4d4c;
+    background-color: #3f3e3f;
+    border-color: #3f3e3f;
   }
 `;
