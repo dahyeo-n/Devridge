@@ -4,26 +4,26 @@ function Post({ posts, gotoDetailPage }) {
   return (
     <>
       {posts.map((post) => (
-        <>
+        <div key={post.id}>
           <StDevRidgePost
             key={post.id}
             onClick={() => {
               gotoDetailPage(post.id);
             }}
           >
-            {post.title.slice(0, 8) + '...'}
+            {post.title.slice(0, 20) + '...'}
             <StDevRidgePostBody>
               <StDevRidgeNickName>
-                {post.nickname}| {post.location.name}
+                {post.nickname} | {post.location.name}
               </StDevRidgeNickName>
 
               <StDevRidgeCreateAt>{post.createdAt} </StDevRidgeCreateAt>
             </StDevRidgePostBody>
             <StDevRidgePostFoot>
-              <p>{post.content.slice(0, 9) + '....'} </p>
+              <p>{post.content.slice(0, 20) + '....'} </p>
             </StDevRidgePostFoot>
           </StDevRidgePost>
-        </>
+        </div>
       ))}
     </>
   );
