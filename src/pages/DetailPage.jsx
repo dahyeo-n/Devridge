@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from 'components/commons/Header';
 import Button from 'components/commons/Button';
+import { getReview } from 'store/modules/reviewSlice';
 
 function DetailPage() {
   const params = useParams();
@@ -28,7 +29,7 @@ function DetailPage() {
     if (review.password !== +password) {
       return alert('비밀번호가 틀렸습니다.');
     }
-    dispatch(review);
+    dispatch(getReview(review));
     navigate('/write');
   };
 
@@ -43,7 +44,6 @@ function DetailPage() {
     }
   };
 
-  console.log(review);
   return (
     <PageContainer>
       <Header />
