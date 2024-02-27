@@ -26,6 +26,10 @@ function DetailPage() {
 
   const passwordEditHandler = (e) => {
     e.preventDefault();
+
+    if (password === '') {
+      return alert('비밀번호를 입력해주십시오.');
+    }
     if (+review.password !== password) {
       return alert('비밀번호가 틀렸습니다.');
     }
@@ -35,6 +39,11 @@ function DetailPage() {
 
   const passwordDeleteHandler = (e) => {
     e.preventDefault();
+
+    if (password === '') {
+      return alert('비밀번호를 입력해주십시오.');
+    }
+
     if (+review.password !== password) {
       return alert('비밀번호가 틀렸습니다.');
     }
