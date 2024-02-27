@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
-function Post({ posts }) {
+function Post({ posts, gotoDetailPage }) {
   return (
     <>
       {posts.map((post) => (
         <>
-          <StDevRidgePost key={post.id}>
+          <StDevRidgePost
+            key={post.id}
+            onClick={() => {
+              gotoDetailPage(post.id);
+            }}
+          >
             {post.title.slice(0, 2) + '...'}
             <StDevRidgePostBody>
               <StDevRidgeNickName>
