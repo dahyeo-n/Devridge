@@ -7,7 +7,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addReview, updateReview } from '../store/modules/reviewSlice';
-import Layout from '../components/commons/Layout';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
 const WritePage = () => {
@@ -19,6 +18,7 @@ const WritePage = () => {
   const [errors, setErrors] = useState({});
 
   const { id } = useParams();
+   console.log(id);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
@@ -169,99 +169,96 @@ const WritePage = () => {
   };
 
   return (
-    <div>
-      <Layout />
-      <StPageWide>
-        <form onSubmit={(e) => submitPostHandler(e)}>
-          <StTitleWriteBox
-            type="text"
-            value={title}
-            name="title"
-            placeholder="제목을 입력해주세요."
-            maxLength="40"
-            minLength="10"
-            onChange={titleChangeHandler}
-            required
-          />
-          {errors.title && <p style={{ color: 'red' }}>{errors.title}</p>}
-          <StNicknameWriteBox
-            type="text"
-            value={nickname}
-            name="nickname"
-            placeholder="닉네임을 입력해주세요."
-            maxLength="10"
-            minLength="1"
-            onChange={nicknameChangeHandler}
-            required
-          />
-          <StLocationNameWriteBox
-            type="input"
-            value={locationName}
-            name="locationName"
-            placeholder="재직하셨던 회사명을 입력해주세요."
-            onChange={(e) => locationNameChangeHandler(e)}
-            required
-          />
+    <StPageWide>
+      <form onSubmit={(e) => submitPostHandler(e)}>
+        <StTitleWriteBox
+          type="text"
+          value={title}
+          name="title"
+          placeholder="제목을 입력해주세요."
+          maxLength="40"
+          minLength="10"
+          onChange={titleChangeHandler}
+          required
+        />
+        {errors.title && <p style={{ color: 'red' }}>{errors.title}</p>}
+        <StNicknameWriteBox
+          type="text"
+          value={nickname}
+          name="nickname"
+          placeholder="닉네임을 입력해주세요."
+          maxLength="10"
+          minLength="1"
+          onChange={nicknameChangeHandler}
+          required
+        />
+        <StLocationNameWriteBox
+          type="input"
+          value={locationName}
+          name="locationName"
+          placeholder="재직하셨던 회사명을 입력해주세요."
+          onChange={(e) => locationNameChangeHandler(e)}
+          required
+        />
 
-          <MapBox>
-            <Map // 로드뷰 표시할 Container
-              center={{
-                lat: 37.566826,
-                lng: 126.9786567
-              }}
-              style={{
-                width: '100%',
-                height: '350px'
-              }}
-              level={1}
-              onCreate={setMapInstance}
-            >
-              {markers.map((marker) => (
-                <MapMarker
-                  key={`marker-${marker.correctCompanyName}-${marker.position.lat},${marker.position.lng}`}
-                  position={marker.position}
-                  onClick={() => setSelectedMarkerInfo(marker)}
-                >
-                  {selectedMarkerInfo && selectedMarkerInfo.correctCompanyName === marker.correctCompanyName && (
-                    <div style={{ color: '#000' }}>{marker.correctCompanyName}</div>
-                  )}
-                </MapMarker>
-              ))}
-            </Map>
-          </MapBox>
-          <StContentWriteBox
-            as="textarea"
-            value={content}
-            name="content"
-            placeholder="내용을 입력해주세요."
-            maxLength="300"
-            minLength="10"
-            onChange={contentChangeHandler}
+        <MapBox>
+          <Map // 로드뷰 표시할 Container
+            center={{
+              lat: 37.566826,
+              lng: 126.9786567
+            }}
+            style={{
+              width: '100%',
+              height: '350px'
+            }}
+            level={1}
+            onCreate={setMapInstance}
+          >
+            {markers.map((marker) => (
+              <MapMarker
+                key={`marker-${marker.correctCompanyName}-${marker.position.lat},${marker.position.lng}`}
+                position={marker.position}
+                onClick={() => setSelectedMarkerInfo(marker)}
+              >
+                {selectedMarkerInfo && selectedMarkerInfo.correctCompanyName === marker.correctCompanyName && (
+                  <div style={{ color: '#000' }}>{marker.correctCompanyName}</div>
+                )}
+              </MapMarker>
+            ))}
+          </Map>
+        </MapBox>
+        <StContentWriteBox
+          as="textarea"
+          value={content}
+          name="content"
+          placeholder="내용을 입력해주세요."
+          maxLength="300"
+          minLength="10"
+          onChange={contentChangeHandler}
+          required
+        />
+        <StPwBtnWrap>
+          <StPasswordWriteBox
+            type="password"
+            value={password}
+            name="password"
+            placeholder="비밀번호 4자리"
+            maxLength="4"
+            minLength="4"
+            onChange={passwordChangeHandler}
             required
           />
-          <StPwBtnWrap>
-            <StPasswordWriteBox
-              type="password"
-              value={password}
-              name="password"
-              placeholder="비밀번호 4자리"
-              maxLength="4"
-              minLength="4"
-              onChange={passwordChangeHandler}
-              required
-            />
-            <StWriteCancelCompleteBtn>
-              <Stbtn type="button" onClick={cancelBtnhandler}>
-                Cancel
-              </Stbtn>
-              <Stbtn type="submit" disabled={isLoading}>
-                {isLoading ? 'in progress...' : 'Complete'}
-              </Stbtn>
-            </StWriteCancelCompleteBtn>
-          </StPwBtnWrap>
-        </form>
-      </StPageWide>
-    </div>
+          <StWriteCancelCompleteBtn>
+            <Stbtn type="button" onClick={cancelBtnhandler}>
+              Cancel
+            </Stbtn>
+            <Stbtn type="submit" disabled={isLoading}>
+              {isLoading ? 'in progress...' : 'Complete'}
+            </Stbtn>
+          </StWriteCancelCompleteBtn>
+        </StPwBtnWrap>
+      </form>
+    </StPageWide>
   );
 };
 
