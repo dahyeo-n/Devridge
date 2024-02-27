@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-function Button() {
+
+export function WriteButton() {
   const navigate = useNavigate();
 
   const goToWritePage = () => {
@@ -11,10 +12,9 @@ function Button() {
   return <StGoWritePageBtn onClick={goToWritePage}>글쓰기</StGoWritePageBtn>;
 }
 
-export default Button;
-
 const StGoWritePageBtn = styled.button`
-  margin: 10px;
+  margin-right: 50px;
+  margin-top: 10px;
   padding: 10px;
   border-radius: 5px;
   border-color: #212529;
