@@ -19,6 +19,7 @@ const WritePage = () => {
   const [errors, setErrors] = useState({});
 
   const { id } = useParams();
+   console.log(id);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
