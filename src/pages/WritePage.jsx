@@ -227,7 +227,7 @@ const WritePage = () => {
           />
           <StPwBtnWrap>
             <StPasswordWriteBox
-              type="password"
+              type="number"
               value={password}
               name="password"
               placeholder="비밀번호 4자리"
