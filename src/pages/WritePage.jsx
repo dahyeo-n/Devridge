@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
 const WritePage = () => {
@@ -96,7 +95,6 @@ const WritePage = () => {
 
   const submitPostHandler = async (event) => {
     event.preventDefault();
-    console.log(111);
     if (!validateInput()) return;
 
     setIsLoading(true);
@@ -116,8 +114,6 @@ const WritePage = () => {
       }
     };
 
-    console.log(newPost);
-
     try {
       if (id) {
         // 수정 로직
@@ -130,7 +126,6 @@ const WritePage = () => {
       }
       navigate('/');
     } catch (error) {
-      console.error('Error saving the post: ', error);
       alert('게시글 저장에 실패하였습니다.');
     } finally {
       setIsLoading(false);
