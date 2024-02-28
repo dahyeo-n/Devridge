@@ -3,7 +3,7 @@ import { Map, MapMarker, useKakaoLoader, CustomOverlayMap } from 'react-kakao-ma
 import Header from 'components/commons/Header';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import Review from 'components/commons/Review';
+import Post from '../components/commons/Post';
 import { useQuery } from 'react-query';
 import { getReview } from 'store/modules/reviewSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,15 +16,16 @@ function HomePage() {
 
   const reviewData = useSelector((state) => state.review.review);
 
+  // 현재페이지
   const [currentPage, setCurrentPage] = useState(1);
-
+  // 페이지별 포스트되는 게시물 개수
   const [postPerPage, setPostPerPage] = useState(3);
 
   const gotoDetailPage = (id) => {
     navigate(`detail/${id}`);
   };
 
-  const inlineStyleMap = {
+  const styleMap = {
     width: '50%',
     height: '360px',
     marginLeft: '140px',
@@ -32,16 +33,18 @@ function HomePage() {
     borderRadius: '5px'
   };
 
-  const [loading, error] = useKakaoLoader({ appkey: `${process.env.REACT_APP_KAKAO_KEY}/reviews` });
+  const [loading, error] = useKakaoLoader({ appkey: `${process.env.REACT_APP_KAKAO_KEY}` });
 
   const getReviewData = async () => {
-    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/reviews`);
+    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}`);
+
     dispatch(getReview(data));
     return data;
   };
 
   const { isLoading, isError, data } = useQuery('reviews', getReviewData);
 
+  // 데이터를 받아오기전과 받아오기에 실패했을떄 보여질 화면
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -50,6 +53,7 @@ function HomePage() {
     return <p>오류!!!!</p>;
   }
 
+  // 지도화면에 뿌려지는 마커데이터
   const filterMapData = data.filter((data) => data).map((data) => data.location);
 
   const lastPageIndex = currentPage * postPerPage;
@@ -66,22 +70,23 @@ function HomePage() {
     <>
       <Header />
       <StDevRidgeMainContainer>
-        <Map center={{ lat: 37.3588600621634, lng: 127.10520633434606 }} style={inlineStyleMap} level={10}>
+        {/* 지도 나타내는 부분 */}
+        <Map center={{ lat: 37.50232863613739, lng: 127.04444701396942 }} style={styleMap}>
           {filterMapData.map((position) => (
             <>
               <MapMarker
                 position={position.latLng}
                 image={{
-                  src: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png',
+                  src: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다
                   size: {
                     width: 64,
                     height: 69
-                  },
+                  }, // 마커이미지의 크기입니다
                   options: {
                     offset: {
                       x: 27,
                       y: 69
-                    }
+                    } // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
                   }
                 }}
               />
@@ -97,7 +102,7 @@ function HomePage() {
           ))}
         </Map>
         <StDevRidgeReview>
-          <Review posts={currentPosts(data)} gotoDetailPage={gotoDetailPage} />
+          <Post posts={currentPosts(data)} gotoDetailPage={gotoDetailPage} />
           <Pagination postsPerPage={postPerPage} totalPosts={reviewData.length} paginate={setCurrentPage}></Pagination>
         </StDevRidgeReview>
       </StDevRidgeMainContainer>
