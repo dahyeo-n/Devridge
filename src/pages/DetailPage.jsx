@@ -18,7 +18,7 @@ function DetailPage() {
   const dispatch = useDispatch();
   const queryClient = useQueryClient();
   const { mutate: mutateToDelete } = useMutation({
-    mutationFn: async (id) => await axios.delete(`${process.env.REACT_APP_SERVER_URL}/${id}`),
+    mutationFn: async (id) => await axios.delete(`${process.env.REACT_APP_SERVER_URL}/reviews/${id}`),
     onSuccess: async () => {
       await queryClient.invalidateQueries(['reviews']);
     }

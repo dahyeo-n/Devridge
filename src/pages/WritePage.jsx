@@ -29,7 +29,7 @@ const WritePage = () => {
       if (id) {
         setIsLoading(true);
         try {
-          const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/${id}`);
+          const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/reviews/${id}`);
           setTitle(response.data.title);
           setContent(response.data.content);
           setNickname(response.data.nickname);
@@ -117,11 +117,11 @@ const WritePage = () => {
     try {
       if (id) {
         // 수정 로직
-        await axios.patch(`${process.env.REACT_APP_SERVER_URL}/${id}`, newPost);
+        await axios.patch(`${process.env.REACT_APP_SERVER_URL}/reviews/${id}`, newPost);
         alert('게시글이 수정되었습니다.');
       } else {
         // 생성 로직
-        await axios.post(`${process.env.REACT_APP_SERVER_URL}`, newPost);
+        await axios.post(`${process.env.REACT_APP_SERVER_URL}/reviews`, newPost);
         alert('새 게시글이 추가되었습니다.');
       }
       navigate('/');

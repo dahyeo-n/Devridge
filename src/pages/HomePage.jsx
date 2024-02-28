@@ -35,7 +35,7 @@ function HomePage() {
   const [loading, error] = useKakaoLoader({ appkey: `${process.env.REACT_APP_KAKAO_KEY}/reviews` });
 
   const getReviewData = async () => {
-    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}`);
+    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/reviews`);
     dispatch(getReview(data));
     return data;
   };
