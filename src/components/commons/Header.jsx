@@ -15,7 +15,7 @@ function Header() {
 
   return (
     <StDevRidgeHeader>
-      <StDevRidgeTitle onClick={gotoHome}>Devridge</StDevRidgeTitle>
+      <StDevRidgeTitle onClick={gotoHome}>DevRidge</StDevRidgeTitle>
       <Button onClick={gotoWritePage} label={'글쓰기'} />
     </StDevRidgeHeader>
   );

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Header from 'components/commons/Header';
 import styled from 'styled-components';
 import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidV4 } from 'uuid';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
@@ -99,7 +99,7 @@ const WritePage = () => {
 
     setIsLoading(true);
     const newPost = {
-      id: uuidv4(),
+      id: uuidV4(),
       title,
       content,
       nickname,
@@ -140,7 +140,7 @@ const WritePage = () => {
     const numbersOnly = event.target.value.replace(/\D/g, '');
     setPassword(numbersOnly);
   };
-  const cancelBtnhandler = () => {
+  const cancelBtnHandler = () => {
     const userConfirmed = window.confirm('변경사항이 모두 초기화됩니다. 정말 나가시겠습니까?');
     if (userConfirmed) {
       setTitle('');
@@ -188,7 +188,7 @@ const WritePage = () => {
           />
 
           <MapBox>
-            <Map // 로드뷰 표시할 Container
+            <Map
               center={{
                 lat: 37.566826,
                 lng: 126.9786567
@@ -235,12 +235,12 @@ const WritePage = () => {
               required
             />
             <StWriteCancelCompleteBtn>
-              <Stbtn type="button" onClick={cancelBtnhandler}>
+              <StBtn type="button" onClick={cancelBtnHandler}>
                 Cancel
-              </Stbtn>
-              <Stbtn type="submit" disabled={isLoading}>
+              </StBtn>
+              <StBtn type="submit" disabled={isLoading}>
                 {isLoading ? 'in progress...' : 'Complete'}
-              </Stbtn>
+              </StBtn>
             </StWriteCancelCompleteBtn>
           </StPwBtnWrap>
         </form>
@@ -358,7 +358,7 @@ const StWriteCancelCompleteBtn = styled.div`
   margin: 20px 10px 0px 0px;
 `;
 
-const Stbtn = styled.button`
+const StBtn = styled.button`
   border: none;
   margin: 10px;
   padding: 10px;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-function Post({ posts, gotoDetailPage }) {
+function Review({ posts, gotoDetailPage }) {
   return (
     <>
       {posts.map((post) => (
@@ -29,7 +29,7 @@ function Post({ posts, gotoDetailPage }) {
   );
 }
 
-export default Post;
+export default Review;
 
 const StDevRidgePost = styled.figure`
   margin: 10px;
