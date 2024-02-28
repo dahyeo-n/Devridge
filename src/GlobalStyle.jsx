@@ -57,11 +57,6 @@ table {
 }
   * {
       box-sizing: border-box;
-      
-      @font-face {
-    font-family: serif;
-    src: url("./font/malgun.ttf");
-  }
   }
   
 
