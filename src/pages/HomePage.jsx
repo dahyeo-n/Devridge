@@ -25,7 +25,7 @@ function HomePage() {
     navigate(`detail/${id}`);
   };
 
-  const styleMap = {
+  const inlineStyleMap = {
     width: '50%',
     height: '360px',
     marginLeft: '140px',
@@ -71,7 +71,7 @@ function HomePage() {
       <Header />
       <StDevRidgeMainContainer>
         {/* 지도 나타내는 부분 */}
-        <Map center={{ lat: 37.3588600621634, lng: 127.10520633434606 }} style={styleMap} level={10}>
+        <Map center={{ lat: 37.3588600621634, lng: 127.10520633434606 }} style={inlineStyleMap} level={10}>
           {filterMapData.map((position) => (
             <>
               <MapMarker
