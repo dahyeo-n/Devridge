@@ -141,7 +141,10 @@ const WritePage = () => {
   const nicknameChangeHandler = (event) => setNickname(event.target.value);
   const locationNameChangeHandler = (event) => setLocationName(event.target.value);
   const contentChangeHandler = (event) => setContent(event.target.value);
-  const passwordChangeHandler = (event) => setPassword(event.target.value);
+  const passwordChangeHandler = (event) => {
+    const numbersOnly = event.target.value.replace(/\D/g, '');
+    setPassword(numbersOnly);
+  };
   const cancelBtnhandler = () => {
     const userConfirmed = window.confirm('변경사항이 모두 초기화됩니다. 정말 나가시겠습니까?');
     if (userConfirmed) {
@@ -227,7 +230,7 @@ const WritePage = () => {
           />
           <StPwBtnWrap>
             <StPasswordWriteBox
-              type="number"
+              type="password"
               value={password}
               name="password"
               placeholder="비밀번호 4자리"
