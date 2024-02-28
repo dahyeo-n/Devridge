@@ -171,9 +171,9 @@ const WritePage = () => {
             type="text"
             value={title}
             name="title"
-            placeholder="제목을 입력해주세요. (최소 10자, 최대 40자)"
+            placeholder="제목을 입력해주세요. (최소 10자, 최대 20자)"
             minLength="10"
-            maxLength="40"
+            maxLength="20"
             onChange={titleChangeHandler}
             required
           />
