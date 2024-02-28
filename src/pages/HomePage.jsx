@@ -3,7 +3,7 @@ import { Map, MapMarker, useKakaoLoader, CustomOverlayMap } from 'react-kakao-ma
 import Header from 'components/commons/Header';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import Post from '../components/commons/Post';
+import Review from '../components/commons/Review';
 import { useQuery } from 'react-query';
 import { getReview } from 'store/modules/reviewSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -102,7 +102,7 @@ function HomePage() {
           ))}
         </Map>
         <StDevRidgeReview>
-          <Post posts={currentPosts(data)} gotoDetailPage={gotoDetailPage} />
+          <Review posts={currentPosts(data)} gotoDetailPage={gotoDetailPage} />
           <Pagination postsPerPage={postPerPage} totalPosts={reviewData.length} paginate={setCurrentPage}></Pagination>
         </StDevRidgeReview>
       </StDevRidgeMainContainer>
