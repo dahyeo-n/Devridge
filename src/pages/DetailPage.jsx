@@ -58,7 +58,7 @@ function DetailPage() {
       <Header />
       <PageContainer>
         <DetailContainer>
-          <Title>{review.title}</Title>
+          <Title maxLength="10">{review.title}</Title>
           <NicknameAndDate>{review.nickname + ' | ' + review.createdAt}</NicknameAndDate>
           <CompanyName>{review.location.name}</CompanyName>
           <Content>{review.content}</Content>
