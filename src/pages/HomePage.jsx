@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Map, MapMarker, useKakaoLoader, CustomOverlayMap } from 'react-kakao-maps-sdk';
 import Header from 'components/commons/Header';
 import { useNavigate } from 'react-router-dom';
@@ -37,13 +37,13 @@ function HomePage() {
 
   const getReviewData = async () => {
     const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/reviews`);
-
+    console.log(data);
     dispatch(getReview(data));
     return data;
   };
 
   const { isLoading, isError, data } = useQuery('reviews', getReviewData);
-
+  console.log(data);
   // 데이터를 받아오기전과 받아오기에 실패했을떄 보여질 화면
   if (isLoading) {
     return <p>Loading...</p>;

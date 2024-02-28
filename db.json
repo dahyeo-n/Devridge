@@ -1,3 +1,19 @@
 {
-  "reviews": []
+  "reviews": [
+    {
+      "id": "990ff650-f456-41a8-9837-5115886dbecf",
+      "title": "fdsfsfdsfsf",
+      "content": "dsfdsfdsfdsfdsfdsfdsdfdsfsdfsdfdsfdsfsdfsdfsdfsdfdsfsdfsdfdsfdsfsdfsdfdsfsdfsdfsdfsdfsd",
+      "nickname": "dsfdsfdsfd",
+      "password": "1234",
+      "createdAt": "2024. 2. 28. 오후 7:19:29",
+      "location": {
+        "name": "네이버클라우드",
+        "latLng": {
+          "lat": "37.39546414754096",
+          "lng": "127.11210794905334"
+        }
+      }
+    }
+  ]
 }
