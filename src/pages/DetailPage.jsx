@@ -74,7 +74,7 @@ function DetailPage() {
                   setPassword('');
                   return alert('비밀번호는 숫자를 입력해주십시오.');
                 }
-                setPassword(+e.target.value);
+                setPassword(e.target.value);
               }}
             />
             <Button onClick={(e) => passwordEditHandler(e)} label="Edit" />
