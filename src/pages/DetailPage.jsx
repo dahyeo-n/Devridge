@@ -69,7 +69,13 @@ function DetailPage() {
               value={password}
               minLength="4"
               maxLength="4"
-              onChange={(e) => setPassword(+e.target.value)}
+              onChange={(e) => {
+                if (isNaN(e.target.value)) {
+                  setPassword('');
+                  return alert('비밀번호는 숫자를 입력해주십시오.');
+                }
+                setPassword(+e.target.value);
+              }}
             />
             <Button onClick={(e) => passwordEditHandler(e)} label="Edit" />
             <Button onClick={(e) => passwordDeleteHandler(e)} label="Delete" />
