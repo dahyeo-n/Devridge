@@ -1,21 +1,6 @@
 {
   "reviews": [
     {
-      "id": "b8a187a3-528c-464e-89d7-3b33b10f98ef",
-      "title": "안단테ㄴㅇㄹㅇㄴㄹㄴㄹㅇㄴㅇsdasdf",
-      "content": "ㄴㅇ라ㅓ아ㅓ라ㅣㅇ러리ㅓㄴㅇ런ㅇ러아널니ㅏ",
-      "nickname": "안단테ㄴㅇㄹㄴㅇㄹㄴ",
-      "password": "1231",
-      "createdAt": "2024. 2. 28. 오전 10:51:26",
-      "location": {
-        "name": "카카오 T 중원노인종합복지관 주차장",
-        "latLng": {
-          "lat": "37.4320362585154",
-          "lng": "127.131575934186"
-        }
-      }
-    },
-    {
       "id": "36e0effe-c212-40c1-a3c7-30a2c867e427",
       "title": "dfdffdfdfdfd",
       "content": "fsddfsdfsdfsdfsdfsd",

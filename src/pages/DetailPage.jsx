@@ -30,7 +30,7 @@ function DetailPage() {
     if (password === '') {
       return alert('비밀번호를 입력해주십시오.');
     }
-    if (+review.password !== password) {
+    if (+review.password !== +password) {
       return alert('비밀번호가 틀렸습니다.');
     }
     dispatch(getReview(review));
@@ -44,7 +44,7 @@ function DetailPage() {
       return alert('비밀번호를 입력해주십시오.');
     }
 
-    if (+review.password !== password) {
+    if (+review.password !== +password) {
       return alert('비밀번호가 틀렸습니다.');
     }
     if (window.confirm('정말 삭제하시겠습니까?')) {
