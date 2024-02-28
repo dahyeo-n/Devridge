@@ -7,7 +7,6 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addReview, updateReview } from '../store/modules/reviewSlice';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
 const WritePage = () => {
@@ -16,12 +15,10 @@ const WritePage = () => {
   const [content, setContent] = useState('');
   const [password, setPassword] = useState('');
   const [locationName, setLocationName] = useState('');
-  const [position, setPosition] = useState({});
   const [errors, setErrors] = useState({});
 
   const { id } = useParams();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
 
   const [selectedMarkerInfo, setSelectedMarkerInfo] = useState();
@@ -38,7 +35,6 @@ const WritePage = () => {
           setContent(response.data.content);
           setNickname(response.data.nickname);
           setLocationName(response.data.location.name);
-          setPosition(response.data.location.latLng);
         } catch (error) {
           alert('게시물이 존재하지 않습니다.');
           navigate('/');
@@ -58,7 +54,6 @@ const WritePage = () => {
       locationName,
       (data, status, _pagination) => {
         if (status === kakao.maps.services.Status.OK) {
-          // 검색된 장소 위치 기준으로 지도 범위를 재설정하기 위해 LatLngBounds 객체에 좌표 추가
           const bounds = new kakao.maps.LatLngBounds();
           let searchResultsMarkers = [];
 
@@ -73,7 +68,6 @@ const WritePage = () => {
             bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
           }
           setMarkers(searchResultsMarkers);
-          // 검색된 장소 위치를 기준으로 지도 범위 재설정
           mapInstance.setBounds(bounds);
         }
       },
@@ -128,12 +122,10 @@ const WritePage = () => {
       if (id) {
         // 수정 로직
         await axios.patch(`${process.env.REACT_APP_SERVER_URL}/${id}`, newPost);
-        // dispatch(updateReview({ id, ...newPost }));
         alert('게시글이 수정되었습니다.');
       } else {
         // 생성 로직
         await axios.post(`${process.env.REACT_APP_SERVER_URL}`, newPost);
-        // dispatch(addReview(newPost));
         alert('새 게시글이 추가되었습니다.');
       }
       navigate('/');
@@ -287,7 +279,6 @@ const StTitleWriteBox = styled.input`
   font-size: 20px;
   line-height: 230%;
   font-weight: bold;
-  /* font-weight: 400; */
   letter-spacing: -0.02px;
   color: #7472e7;
 `;
@@ -305,7 +296,6 @@ const StNicknameWriteBox = styled.input`
   font-size: 20px;
   line-height: 230%;
   font-weight: bold;
-  /* font-weight: 400; */
   letter-spacing: -0.02px;
   color: #7472e7;
 `;
@@ -323,7 +313,6 @@ const StLocationNameWriteBox = styled.input`
   font-size: 20px;
   line-height: 230%;
   font-weight: bold;
-  /* font-weight: 400; */
   letter-spacing: -0.02px;
   color: #7472e7;
 `;
@@ -360,7 +349,6 @@ const StPasswordWriteBox = styled.input`
   font-size: 15px;
   line-height: 230%;
   font-weight: bold;
-  /* font-weight: 400; */
   letter-spacing: -0.02px;
   color: #7472e7;
 `;
