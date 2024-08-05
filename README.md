@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+<div align="center">
+<h1>Devridge (데브릿지)</h1>
+<img width="600" alt="image" src="https://github.com/dahyeo-n/Devridge/blob/main/public/images/devridgeLogo.png">
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 목차
 
-## Available Scripts
+- [배포 주소](#배포-주소)
+- [0. 프로젝트 소개](#0-프로젝트-소개)
+- [1. 팀원 소개](#1-팀원-소개)
+- [2. Stacks 🐈](#2-stacks-)
+- [3. 화면 구성 및 발표 자료](#3-화면-구성-및-발표-자료)
 
-In the project directory, you can run:
+## 배포 주소
 
-### `npm start`
+https://devridge.vercel.app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 0. 프로젝트 소개
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> **개발 기간: 2024. 2. 23 ~ 2. 29**
 
-### `npm test`
+데브릿지는 Dev + Bridge의 합성어로, '**IT 기업의 취업 정보를 공유하는 커뮤니티**'입니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 1. 팀원 소개
 
-### `npm run build`
+|                                                              진다현 (리더)                                                              |                                      안단테                                     |                  김명환                  |
+| :-------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: | :--------------------------------------: |
+| <img width="250px" src="https://avatars.githubusercontent.com/u/154739298?s=400&u=ffcac1e1be1165a48832c6f33c04f9b617c70802&v=4" /> | <img width="250px" src="https://avatars.githubusercontent.com/u/98266983?v=4"/> | <img width="250px" src="https://avatars.githubusercontent.com/u/154975499?v=4"/> |
+|                                             [@dahyeo-n](https://github.com/dahyeo-n)                                              |                       [@Andante23](https://github.com/Andante23)                       | [@baram55](https://github.com/baram55) |
+|            발표 / 작성 페이지           |            메인 페이지           |            상세 페이지            |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 2. Stacks 🐈
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Environment
 
-### `npm run eject`
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=Visual%20Studio%20Code&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white)
+![Github](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Config
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Development
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=Javascript&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
 
-## Learn More
+### Server Asynchronous Communication
+![Tanstack Query](https://img.shields.io/badge/Tanstack_Query-FF4000?style=for-the-badge&logo=tanstackquery&logoColor=white)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Client State Management
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Redux Toolkit](https://img.shields.io/badge/Redux_Tookit-593D88?style=for-the-badge&logo=redux&logoColor=white)
 
-### Code Splitting
+### Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 
-### Analyzing the Bundle Size
+### Database
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![JSON Server](https://img.shields.io/badge/Json_server-181818?style=for-the-badge&logo=jsonserver&logoColor=white)
 
-### Making a Progressive Web App
+### Document Organizer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white)
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 3. 화면 구성 및 발표 자료
 
-### Deployment
+![1](https://github.com/user-attachments/assets/94537397-3d7f-42fd-824b-acbd69318a48)
+![2](https://github.com/user-attachments/assets/6d480d55-a623-4dd0-a9f6-2f3cb4f7b78d)
+![3](https://github.com/user-attachments/assets/3ed11fa9-8892-4724-802a-98bd594465dc)
+![4](https://github.com/user-attachments/assets/cc176c54-07c7-4f60-8c96-52dfc608ed81)
+![5](https://github.com/user-attachments/assets/32fd5d9a-aca6-449e-828a-7877b4de2c86)
+![6](https://github.com/user-attachments/assets/a2d0c19c-da4c-4a29-8404-ea2fb9503ad5)
+![7](https://github.com/user-attachments/assets/a96dda8a-7da3-4c50-9493-1135c15b59ce)
+![8](https://github.com/user-attachments/assets/ea70297e-c868-4ce2-9801-ccc1811b714d)
+![9](https://github.com/user-attachments/assets/f1046058-24d2-42fe-9007-e82d4f4f89f0)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+<div align="right">
+  
+[목차로 가기](#목차)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</div>
