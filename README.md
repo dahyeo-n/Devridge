@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Devridge (데브릿지)</h1>
+<h1>Devridge (데브리지)</h1>
 <img width="600" alt="image" src="https://github.com/dahyeo-n/Devridge/blob/main/public/images/devridgeLogo.png">
 </div>
 
@@ -19,7 +19,7 @@ https://devridge.vercel.app
 
 > **개발 기간: 2024. 2. 23 ~ 2. 29**
 
-데브릿지는 Dev + Bridge의 합성어로, '**IT 기업의 취업 정보를 공유하는 커뮤니티**'입니다.
+데브리지는 Dev + Bridge의 합성어로, '**IT 기업의 취업 정보를 공유하는 커뮤니티**'입니다.
 
 ## 1. 팀원 소개
 
